@@ -260,19 +260,6 @@ export default function App() {
               <span className="hidden sm:inline">All Placements</span>
               <span>({placements.length})</span>
             </button>
-
-            <button
-              type="button"
-              onClick={() => handleOpenEditor()}
-              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-                viewMode === 'editor'
-                  ? 'bg-[#8B1E3F] text-white shadow-xs'
-                  : 'bg-rose-50 text-[#8B1E3F] border border-rose-200 hover:bg-rose-100'
-              }`}
-            >
-              <FileJson className="w-3.5 h-3.5" />
-              <span>Edit Data / JSON</span>
-            </button>
           </div>
         </div>
       </header>
@@ -497,7 +484,16 @@ export default function App() {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-3 text-slate-400">
+          <div className="flex flex-wrap items-center gap-3 text-slate-400">
+            <button
+              type="button"
+              onClick={() => handleOpenEditor()}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 transition-all cursor-pointer shadow-2xs"
+            >
+              <FileJson className="w-3.5 h-3.5 text-[#E5A93C]" />
+              <span>Edit Data / JSON</span>
+            </button>
+            <span>·</span>
             <span>UGC Recognized</span>
             <span>·</span>
             <a
