@@ -13,7 +13,8 @@ import { DepartmentStats } from './components/DepartmentStats';
 import { MitWpuLogo } from './components/MitWpuLogo';
 import { LoadingScreen } from './components/LoadingScreen';
 import { PlacementJsonEditor } from './components/PlacementJsonEditor';
-import mitLogoImg from './assets/mitLogo.jpg';
+import logoMitImg from './assets/logoMIT.jpg';
+
 import {
   Search,
   Users,
@@ -224,7 +225,7 @@ export default function App() {
             className="text-lg font-bold tracking-tight text-[#8B1E3F] whitespace-nowrap flex items-center gap-2.5 cursor-pointer hover:opacity-90 transition-opacity"
           >
             <img
-              src={mitLogoImg}
+              src={logoMitImg}
               alt="MIT-WPU"
               className="h-8 w-auto object-contain shrink-0 rounded-xs"
             />
@@ -482,7 +483,7 @@ export default function App() {
           <div className="flex items-center gap-3">
             <div className="bg-white p-1 rounded-lg shrink-0 shadow-xs">
               <img
-                src="/logoMIT.jpg"
+                src={logoMitImg}
                 alt="MIT-WPU Logo"
                 className="h-8 w-auto object-contain rounded-xs"
               />
