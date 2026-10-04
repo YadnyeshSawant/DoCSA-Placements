@@ -273,7 +273,7 @@ export default function App() {
       ) : viewMode === 'banner' ? (
         /* VIEW 2: CLEAN BANNER VIEW */
         <div className="flex-1 bg-slate-100/60 pt-4 pb-8 flex flex-col items-center">
-          <div className="w-full max-w-5xl mx-auto px-2 sm:px-4 md:px-6 pb-2 flex justify-center">
+          <div className="w-full max-w-5xl mx-auto px-2 sm:px-4 md:px-6 pb-2 flex justify-center overflow-x-auto">
             {selectedPlacement.type === 'group' ? (
               <GroupPlacementBanner placement={selectedPlacement} />
             ) : (
@@ -282,14 +282,15 @@ export default function App() {
           </div>
 
           {/* Controls Below the Banner to Navigate Between Banners */}
-          <div className="w-full max-w-5xl mx-auto px-4 md:px-6 pt-3 pb-6 flex items-center justify-between gap-4">
+          <div className="w-full max-w-5xl mx-auto px-3 sm:px-4 md:px-6 pt-3 pb-6 flex items-center justify-between gap-2 sm:gap-4">
             <button
               type="button"
               onClick={() => handleNavigateBanner('prev')}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-[#8B1E3F]/40 shadow-xs hover:shadow-sm text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#8B1E3F] transition-all cursor-pointer group"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-[#8B1E3F]/40 shadow-xs hover:shadow-sm text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#8B1E3F] transition-all cursor-pointer group"
             >
               <ChevronLeft className="w-4 h-4 text-slate-400 group-hover:text-[#8B1E3F] transition-colors" />
-              <span>Previous Banner</span>
+              <span className="hidden xs:inline sm:inline">Previous</span>
+              <span className="hidden sm:inline">Banner</span>
             </button>
 
             <div className="text-xs font-semibold text-slate-500">
@@ -299,9 +300,10 @@ export default function App() {
             <button
               type="button"
               onClick={() => handleNavigateBanner('next')}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#8B1E3F] hover:bg-[#721833] text-white shadow-xs hover:shadow-sm text-xs sm:text-sm font-semibold transition-all cursor-pointer group"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-[#8B1E3F] hover:bg-[#721833] text-white shadow-xs hover:shadow-sm text-xs sm:text-sm font-semibold transition-all cursor-pointer group"
             >
-              <span>Next Banner</span>
+              <span className="hidden xs:inline sm:inline">Next</span>
+              <span className="hidden sm:inline">Banner</span>
               <ChevronRight className="w-4 h-4 text-white/80 group-hover:text-white transition-colors" />
             </button>
           </div>
@@ -310,32 +312,38 @@ export default function App() {
         /* VIEW 2: ALL PLACEMENTS DIRECTORY / GRID */
         <>
           {/* Hero Section */}
-          <section className="relative bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200 pt-8 pb-10 px-4 sm:px-6 lg:px-8">
+          <section className="relative bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200 pt-6 sm:pt-8 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                <div className="lg:col-span-8 space-y-3">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-[#8B1E3F]">
-                    <span>School of Computer Science & Engineering</span>
-                    <span aria-hidden="true">·</span>
-                    <span>Department of Computer Science and Applications</span>
-                  </div>
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                    Celebrating A <span className="text-[#8B1E3F]">Career Milestone</span> for Our Students
-                  </h1>
-                  <p className="font-serif-cormorant italic text-xl sm:text-2xl font-bold text-[#8B1E3F]">
-                    Heartiest Congratulations
-                  </p>
-                  <p className="text-sm sm:text-base text-slate-600 max-w-2xl font-medium leading-relaxed">
-                    on being selected for prestigious Corporate Internships cum Full-Time Placements
-                  </p>
-                </div>
-                <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 bg-white rounded-2xl border border-slate-200/90 shadow-sm text-center">
-                  <MitWpuLogo variant="blue" size="2xl" className="mb-3" />
+                {/* 1. On mobile/tablet: MIT Logo First (order-1 lg:order-2) */}
+                <div className="order-1 lg:order-2 lg:col-span-4 flex flex-col items-center justify-center p-5 sm:p-6 bg-white rounded-2xl border border-slate-200/90 shadow-sm text-center">
+                  <MitWpuLogo variant="blue" size="2xl" className="mb-3 max-w-[220px] sm:max-w-xs" />
                   <p className="text-sm font-bold text-slate-800 uppercase tracking-wider">
                     MIT World Peace University
                   </p>
                   <p className="text-xs text-slate-500 mt-0.5">
                     Kothrud, Pune · DoCSA Placement Cell
+                  </p>
+                </div>
+
+                {/* 2. On mobile/tablet: School & DoCSA line, then Congratulations (order-2 lg:order-1) */}
+                <div className="order-2 lg:order-1 lg:col-span-8 space-y-3 text-center lg:text-left">
+                  {/* School of line then Department line */}
+                  <h2 className="flex flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-2 text-base sm:text-lg lg:text-xl font-bold text-[#8B1E3F] tracking-tight text-center lg:text-left">
+                    <span>School of Computer Science & Engineering</span>
+                    <span className="text-[#8B1E3F]/60 select-none" aria-hidden="true">·</span>
+                    <span>Department of Computer Science and Applications</span>
+                  </h2>
+
+                  {/* Congratulations Headlines */}
+                  <p className="font-serif-cormorant italic text-2xl sm:text-3xl lg:text-3xl font-black text-[#8B1E3F]">
+                    Heartiest Congratulations
+                  </p>
+                  <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                    Celebrating A <span className="text-[#8B1E3F]">Career Milestone</span> for Our Students
+                  </h1>
+                  <p className="text-xs sm:text-sm lg:text-base text-slate-600 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
+                    on being selected for prestigious Corporate Internships cum Full-Time Placements
                   </p>
                 </div>
               </div>

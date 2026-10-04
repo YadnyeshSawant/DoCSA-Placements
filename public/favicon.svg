@@ -1,0 +1,51 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- Solid White Background for Dark and Light Browser Tabs -->
+  <rect width="256" height="256" rx="40" fill="#FFFFFF"/>
+  <rect width="256" height="256" rx="40" fill="none" stroke="#E2E8F0" stroke-width="4"/>
+
+  <!-- MIT-WPU Blue World Peace Dome Element -->
+  <g transform="translate(18, 14) scale(0.366)">
+    <!-- Spire / Finial -->
+    <path d="M300 15 L300 50 M290 28 L310 28 M293 45 L307 45" stroke="#004B87" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="300" cy="16" r="5" fill="#004B87"/>
+
+    <!-- Outer Dome Arch -->
+    <path d="M100 270 C100 120 180 65 300 65 C420 65 500 120 500 270 Z" fill="none" stroke="#004B87" stroke-width="8"/>
+
+    <!-- Dome Ribbed Meridian Lines -->
+    <path d="M150 270 C160 145 210 90 300 67" fill="none" stroke="#004B87" stroke-width="4.5"/>
+    <path d="M450 270 C440 145 390 90 300 67" fill="none" stroke="#004B87" stroke-width="4.5"/>
+    <path d="M215 270 C225 160 255 100 300 70" fill="none" stroke="#004B87" stroke-width="4"/>
+    <path d="M385 270 C375 160 345 100 300 70" fill="none" stroke="#004B87" stroke-width="4"/>
+
+    <!-- Central Finial Base -->
+    <path d="M285 65 L315 65 L310 50 L290 50 Z" fill="#004B87"/>
+
+    <!-- Upper Colonade Rim -->
+    <rect x="80" y="270" width="440" height="12" rx="3" fill="#004B87"/>
+
+    <!-- Pillar / Window Section -->
+    <rect x="80" y="282" width="440" height="46" fill="#004B87"/>
+    
+    <!-- White Rectangular Windows -->
+    <rect x="98" y="290" width="18" height="30" rx="4" fill="#FFFFFF"/>
+    <rect x="138" y="290" width="18" height="30" rx="4" fill="#FFFFFF"/>
+    <rect x="178" y="290" width="18" height="30" rx="4" fill="#FFFFFF"/>
+    <rect x="218" y="290" width="18" height="30" rx="4" fill="#FFFFFF"/>
+    <rect x="258" y="290" width="18" height="30" rx="4" fill="#FFFFFF"/>
+    <rect x="298" y="290" width="18" height="30" rx="4" fill="#FFFFFF"/>
+    <rect x="338" y="290" width="18" height="30" rx="4" fill="#FFFFFF"/>
+    <rect x="378" y="290" width="18" height="30" rx="4" fill="#FFFFFF"/>
+    <rect x="418" y="290" width="18" height="30" rx="4" fill="#FFFFFF"/>
+    <rect x="458" y="290" width="18" height="30" rx="4" fill="#FFFFFF"/>
+
+    <!-- Base Solid Beam -->
+    <rect x="65" y="328" width="470" height="15" rx="4" fill="#004B87"/>
+  </g>
+
+  <!-- Wordmark "MIT-WPU" in academic crimson bold -->
+  <text x="128" y="185" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="44" fill="#8B1E3F" letter-spacing="1">MIT-WPU</text>
+
+  <!-- Sanskrit Motto -->
+  <text x="128" y="222" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Mangal', 'Segoe UI', system-ui, sans-serif" font-weight="700" font-size="16" fill="#475569" letter-spacing="1">॥ विश्वशान्तिर्ध्रुवं ध्रुवा ॥</text>
+</svg>

@@ -61,53 +61,53 @@ export const DepartmentStats: React.FC = () => {
   return (
     <section className="bg-white border-y border-slate-200 py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Quantitative Rigor Stats Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div className="p-4 border-r border-slate-100 last:border-r-0">
-            <span className="block text-3xl sm:text-4xl font-black text-[#8B1E3F] tracking-tight tabular-nums">
+        {/* Quantitative Rigor Stats Row in 2x2 grid on mobile/tablet and 4 cols on desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 text-center">
+          <div className="p-3 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-100 lg:bg-transparent lg:border-0 lg:border-r lg:border-slate-100">
+            <span className="block text-2xl sm:text-3xl lg:text-4xl font-black text-[#8B1E3F] tracking-tight tabular-nums">
               {STATS_DATA.highestPackage}
             </span>
-            <span className="block text-xs font-semibold text-slate-800 uppercase tracking-wider mt-1">
+            <span className="block text-[11px] sm:text-xs font-semibold text-slate-800 uppercase tracking-wider mt-1">
               Highest Package
             </span>
-            <span className="block text-[11px] text-slate-500 mt-0.5">
-              Super Dream Offers (Microsoft, AWS)
+            <span className="block text-[10px] sm:text-[11px] text-slate-500 mt-0.5">
+              Super Dream Offers
             </span>
           </div>
 
-          <div className="p-4 border-r border-slate-100 last:border-r-0">
-            <span className="block text-3xl sm:text-4xl font-black text-slate-900 tracking-tight tabular-nums">
+          <div className="p-3 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-100 lg:bg-transparent lg:border-0 lg:border-r lg:border-slate-100">
+            <span className="block text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight tabular-nums">
               {STATS_DATA.averageCTC}
             </span>
-            <span className="block text-xs font-semibold text-slate-800 uppercase tracking-wider mt-1">
+            <span className="block text-[11px] sm:text-xs font-semibold text-slate-800 uppercase tracking-wider mt-1">
               Average CTC
             </span>
-            <span className="block text-[11px] text-slate-500 mt-0.5">
-              Across MCA, BCA & M.Sc Programs
+            <span className="block text-[10px] sm:text-[11px] text-slate-500 mt-0.5">
+              Across All Programs
             </span>
           </div>
 
-          <div className="p-4 border-r border-slate-100 last:border-r-0">
-            <span className="block text-3xl sm:text-4xl font-black text-slate-900 tracking-tight tabular-nums">
+          <div className="p-3 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-100 lg:bg-transparent lg:border-0 lg:border-r lg:border-slate-100">
+            <span className="block text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight tabular-nums">
               {STATS_DATA.placementsAndInternships}
             </span>
-            <span className="block text-xs font-semibold text-slate-800 uppercase tracking-wider mt-1">
+            <span className="block text-[11px] sm:text-xs font-semibold text-slate-800 uppercase tracking-wider mt-1">
               Placements & Internships
             </span>
-            <span className="block text-[11px] text-slate-500 mt-0.5">
+            <span className="block text-[10px] sm:text-[11px] text-slate-500 mt-0.5">
               DoCSA Academic Cohort
             </span>
           </div>
 
-          <div className="p-4">
-            <span className="block text-3xl sm:text-4xl font-black text-[#004B87] tracking-tight tabular-nums">
+          <div className="p-3 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-100 lg:bg-transparent lg:border-0">
+            <span className="block text-2xl sm:text-3xl lg:text-4xl font-black text-[#004B87] tracking-tight tabular-nums">
               {STATS_DATA.corporateRecruiters}
             </span>
-            <span className="block text-xs font-semibold text-slate-800 uppercase tracking-wider mt-1">
+            <span className="block text-[11px] sm:text-xs font-semibold text-slate-800 uppercase tracking-wider mt-1">
               Corporate Recruiters
             </span>
-            <span className="block text-[11px] text-slate-500 mt-0.5">
-              Fortune 500 & Global Tech Giants
+            <span className="block text-[10px] sm:text-[11px] text-slate-500 mt-0.5">
+              Fortune 500 & Global Giants
             </span>
           </div>
         </div>

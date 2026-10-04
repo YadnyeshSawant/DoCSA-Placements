@@ -23,24 +23,27 @@ export const IndividualPlacementBanner: React.FC<IndividualPlacementBannerProps>
       className={`relative w-full max-w-[840px] mx-auto bg-white text-slate-900 rounded-xl overflow-hidden shadow-2xl border border-slate-200/80 flex flex-col justify-between font-display ${className}`}
     >
       {/* Top Header */}
-      <div className="pt-4 pb-1 px-8 sm:px-10 flex items-start justify-between relative z-20">
-        <div className="max-w-md pt-0.5">
-          <p className="text-[#8B1E3F] font-bold text-sm md:text-base tracking-wide uppercase">
+      <div className="pt-4 pb-1 px-4 sm:px-8 md:px-10 flex flex-col md:flex-row items-center md:items-start justify-between relative z-20 text-center md:text-left gap-2 md:gap-0">
+        {/* On mobile/tablet: MIT Logo is on top */}
+        <div className="shrink-0 order-1 md:order-2">
+          <MitWpuLogo variant="blue" size="xl" className="w-40 sm:w-48 md:w-60" />
+        </div>
+
+        {/* On mobile/tablet: Department and School line is below MIT logo */}
+        <div className="max-w-md pt-0.5 order-2 md:order-1">
+          <p className="text-[#8B1E3F] font-bold text-xs sm:text-sm md:text-base tracking-wide uppercase">
             {placement.department}
           </p>
-          <p className="text-slate-500 text-xs font-medium">
+          <p className="text-slate-500 text-[11px] sm:text-xs font-medium">
             {placement.school} · Batch {placement.batchYear}
           </p>
         </div>
-        <div className="shrink-0">
-          <MitWpuLogo variant="blue" size="xl" className="w-44 sm:w-52 md:w-60" />
-        </div>
       </div>
 
-      {/* Main Body Grid with reduced top gap so Heartiest sits close to the header */}
-      <div className="px-8 sm:px-10 flex-1 grid grid-cols-1 md:grid-cols-12 gap-5 items-center relative z-20 mt-1 mb-2">
-        {/* Left Column: Typography & Placed At Card (Given 7 cols so text never overlaps) */}
-        <div className="md:col-span-7 flex flex-col justify-center space-y-3 relative z-30">
+      {/* Main Body Grid */}
+      <div className="px-4 sm:px-8 md:px-10 flex-1 grid grid-cols-1 md:grid-cols-12 gap-5 items-center relative z-20 mt-1 mb-2">
+        {/* Left Column: Typography & Placed At Card (Given 7 cols so text never overlaps on desktop) */}
+        <div className="md:col-span-7 flex flex-col items-center md:items-start text-center md:text-left space-y-3 relative z-30">
           {/* Headlines matching Image 2 */}
           <div>
             <h2 className="text-xl sm:text-2xl md:text-[26px] font-extrabold italic text-slate-800 tracking-tight leading-tight">
@@ -55,7 +58,7 @@ export const IndividualPlacementBanner: React.FC<IndividualPlacementBannerProps>
           </div>
 
           {/* Student Name & Program */}
-          <div className="pt-0.5 border-l-4 border-[#8B1E3F] pl-3.5">
+          <div className="pt-0.5 border-b-2 md:border-b-0 md:border-l-4 border-[#8B1E3F] pb-1.5 md:pb-0 md:pl-3.5">
             <h3 className="text-xl sm:text-2xl md:text-[24px] font-black text-[#8B1E3F] tracking-tight">
               {student?.name || 'Selected Student'}
             </h3>
@@ -101,7 +104,7 @@ export const IndividualPlacementBanner: React.FC<IndividualPlacementBannerProps>
         </div>
 
         {/* Right Column: Hero Student Portrait with concentric Golden & Maroon Arcs */}
-        <div className="md:col-span-5 flex items-end justify-center relative h-[320px] sm:h-[350px] md:h-[380px] z-20">
+        <div className="md:col-span-5 flex items-end justify-center relative h-[300px] sm:h-[350px] md:h-[380px] z-20 mt-2 md:mt-0">
           {/* Dual-Tone Halo Arcs matching Image 2 - scaled proportionally */}
           {/* Outer Golden / Amber Arc */}
           <div className="absolute right-0 bottom-2 w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full border-[16px] sm:border-[20px] md:border-[24px] border-[#E5A93C] opacity-90 -z-10 translate-x-3 pointer-events-none" />
@@ -128,7 +131,7 @@ export const IndividualPlacementBanner: React.FC<IndividualPlacementBannerProps>
       </div>
 
       {/* Bottom Footer Section: Maroon Background with Geometric Arcs (matching Image 2) */}
-      <div className="relative bg-[#8B1E3F] text-white overflow-hidden z-10 pt-4 pb-3 px-8">
+      <div className="relative bg-[#8B1E3F] text-white overflow-hidden z-10 pt-4 pb-3 px-4 sm:px-8">
         {/* Geometric circles & lines inside footer */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <GeometricPattern variant="maroon" className="w-full h-full" />
