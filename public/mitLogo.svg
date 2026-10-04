@@ -1,0 +1,74 @@
+<svg width="600" height="500" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&amp;display=swap');
+      .brand-title {
+        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 900;
+        fill: #A31F34;
+        font-size: 88px;
+        letter-spacing: 2px;
+      }
+      .sanskrit-motto {
+        font-family: 'Noto Sans Devanagari', 'Mangal', 'Segoe UI', system-ui, sans-serif;
+        font-weight: 600;
+        fill: #475569;
+        font-size: 32px;
+        letter-spacing: 1.5px;
+      }
+    </style>
+  </defs>
+
+  <!-- Blue Dome Element -->
+  <g transform="translate(60, 20)">
+    <!-- Spire / Finial -->
+    <path d="M240 10 L240 38 M232 20 L248 20 M235 34 L245 34" stroke="#0F477D" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="240" cy="11" r="3.5" fill="#0F477D"/>
+
+    <!-- Outer Dome Outline -->
+    <path d="M40 220 C40 105 110 50 240 50 C370 50 440 105 440 220 Z" fill="none" stroke="#0F477D" stroke-width="6"/>
+
+    <!-- Dome Ribbed Meridian Arches -->
+    <path d="M85 220 C95 125 155 75 240 52" fill="none" stroke="#0F477D" stroke-width="3.5"/>
+    <path d="M395 220 C385 125 325 75 240 52" fill="none" stroke="#0F477D" stroke-width="3.5"/>
+    <path d="M150 220 C160 135 195 80 240 54" fill="none" stroke="#0F477D" stroke-width="3"/>
+    <path d="M330 220 C320 135 285 80 240 54" fill="none" stroke="#0F477D" stroke-width="3"/>
+
+    <!-- Central Finial Base -->
+    <path d="M228 50 L252 50 L248 38 L232 38 Z" fill="#0F477D"/>
+
+    <!-- Upper Colonade Rim -->
+    <rect x="25" y="220" width="430" height="10" rx="2" fill="#0F477D"/>
+
+    <!-- Pillar / Window Section -->
+    <rect x="25" y="230" width="430" height="38" fill="#0F477D"/>
+    
+    <!-- 11 White Rectangular Windows -->
+    <rect x="38" y="236" width="16" height="26" rx="3.5" fill="#FFFFFF"/>
+    <rect x="74" y="236" width="16" height="26" rx="3.5" fill="#FFFFFF"/>
+    <rect x="110" y="236" width="16" height="26" rx="3.5" fill="#FFFFFF"/>
+    <rect x="146" y="236" width="16" height="26" rx="3.5" fill="#FFFFFF"/>
+    <rect x="182" y="236" width="16" height="26" rx="3.5" fill="#FFFFFF"/>
+    <rect x="218" y="236" width="16" height="26" rx="3.5" fill="#FFFFFF"/>
+    <rect x="254" y="236" width="16" height="26" rx="3.5" fill="#FFFFFF"/>
+    <rect x="290" y="236" width="16" height="26" rx="3.5" fill="#FFFFFF"/>
+    <rect x="326" y="236" width="16" height="26" rx="3.5" fill="#FFFFFF"/>
+    <rect x="362" y="236" width="16" height="26" rx="3.5" fill="#FFFFFF"/>
+    <rect x="398" y="236" width="16" height="26" rx="3.5" fill="#FFFFFF"/>
+
+    <!-- Base Solid Beam -->
+    <rect x="15" y="268" width="450" height="12" rx="3" fill="#0F477D"/>
+
+    <!-- Registered Symbol ® on the right of the dome -->
+    <g transform="translate(460, 180)">
+      <circle cx="16" cy="16" r="14" fill="none" stroke="#0F477D" stroke-width="2.5"/>
+      <text x="16" y="22" fill="#0F477D" font-size="16" font-weight="bold" font-family="-apple-system, BlinkMacSystemFont, sans-serif" text-anchor="middle">R</text>
+    </g>
+  </g>
+
+  <!-- Wordmark "MIT-WPU" in crimson/maroon -->
+  <text x="300" y="380" text-anchor="middle" class="brand-title">MIT-WPU</text>
+
+  <!-- Sanskrit Motto "॥ विश्वशान्तिर्ध्रुवं ध्रुवा ॥" -->
+  <text x="300" y="445" text-anchor="middle" class="sanskrit-motto">॥ विश्वशान्तिर्ध्रुवं ध्रुवा ॥</text>
+</svg>

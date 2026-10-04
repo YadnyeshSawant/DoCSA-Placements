@@ -1,0 +1,124 @@
+{
+  "Highest Package": "₹28.5 LPA",
+  "Average CTC": "₹8.4 LPA",
+  "Placements & Internships": "340+",
+  "Corporate Recruiters": "85+",
+  "highestPackage": "₹28.5 LPA",
+  "averageCTC": "₹8.4 LPA",
+  "placementsAndInternships": "340+",
+  "corporateRecruiters": "85+",
+  "stats": {
+    "highestPackage": {
+      "value": "₹28.5 LPA",
+      "label": "Highest Package",
+      "subtext": "Super Dream Offers (Microsoft, AWS)"
+    },
+    "averageCTC": {
+      "value": "₹8.4 LPA",
+      "label": "Average CTC",
+      "subtext": "Across MCA, BCA & M.Sc Programs"
+    },
+    "placementsAndInternships": {
+      "value": "340+",
+      "label": "Placements & Internships",
+      "subtext": "DoCSA Academic Cohort"
+    },
+    "corporateRecruiters": {
+      "value": "85+",
+      "label": "Corporate Recruiters",
+      "subtext": "Fortune 500 & Global Tech Giants"
+    }
+  },
+  "partners": [
+    {
+      "companyName": "Bentley Systems",
+      "name": "Bentley Systems",
+      "logoLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAacZBU264OYB2tRJm0qF0EViDCpg38aBQKRCSiXwpyIZfNPYxznM98kA&s=10",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAacZBU264OYB2tRJm0qF0EViDCpg38aBQKRCSiXwpyIZfNPYxznM98kA&s=10"
+    },
+    {
+      "companyName": "Deutsche Bank",
+      "name": "Deutsche Bank",
+      "logoLink": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Deutsche_Bank_logo_without_wordmark.svg",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Deutsche_Bank_logo_without_wordmark.svg"
+    },
+    {
+      "companyName": "Ernst & Young (EY)",
+      "name": "Ernst & Young (EY)",
+      "logoLink": "https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg"
+    },
+    {
+      "companyName": "Barclays",
+      "name": "Barclays",
+      "logoLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrhVj5xqMHq9VRoBHjc_DgM2Prn2z9Yki8ryS4AIZ0&s=10",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrhVj5xqMHq9VRoBHjc_DgM2Prn2z9Yki8ryS4AIZ0&s=10"
+    },
+    {
+      "companyName": "Microsoft",
+      "name": "Microsoft",
+      "logoLink": "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
+    },
+    {
+      "companyName": "Deloitte USI",
+      "name": "Deloitte USI",
+      "logoLink": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_Deloitte.svg/3840px-Logo_of_Deloitte.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+      "logo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_Deloitte.svg/3840px-Logo_of_Deloitte.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
+    },
+    {
+      "companyName": "Amazon",
+      "name": "Amazon",
+      "logoLink": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+    },
+    {
+      "companyName": "Persistent Systems",
+      "name": "Persistent Systems",
+      "logoLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQigM0XfG333ezEuORqMwPyb3RoeuAwS2rThl6MXTe5nw&s=10",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQigM0XfG333ezEuORqMwPyb3RoeuAwS2rThl6MXTe5nw&s=10"
+    },
+    {
+      "companyName": "TCS Digital",
+      "name": "TCS Digital",
+      "logoLink": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/3840px-Tata_Consultancy_Services_old_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+      "logo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/3840px-Tata_Consultancy_Services_old_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
+    },
+    {
+      "companyName": "Cognizant",
+      "name": "Cognizant",
+      "logoLink": "https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg"
+    },
+    {
+      "companyName": "J.P. Morgan Chase",
+      "name": "J.P. Morgan Chase",
+      "logoLink": "https://www.jpmorganchase.com/content/dam/jpmorganchase/images/logos/jpmc-logo.svg",
+      "logo": "https://www.jpmorganchase.com/content/dam/jpmorganchase/images/logos/jpmc-logo.svg"
+    },
+    {
+      "companyName": "Infosys",
+      "name": "Infosys",
+      "logoLink": "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg"
+    },
+    {
+      "companyName": "Cisco Systems",
+      "name": "Cisco Systems",
+      "logoLink": "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"
+    },
+    {
+      "companyName": "Celebal Technologies",
+      "name": "Celebal Technologies",
+      "logoLink": "https://ctwebsite2025.blob.core.windows.net/media/celebalwebsite2025/assets_webp/common/images/ct-logo.webp",
+      "logo": "https://ctwebsite2025.blob.core.windows.net/media/celebalwebsite2025/assets_webp/common/images/ct-logo.webp"
+    },
+    {
+      "companyName": "New Corporate Partner",
+      "name": "New Corporate Partner",
+      "logoLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeFMt4m-LHGVGDHvlo3tPUM_PsoXLKBbLHuv4X5C_rapDK7qOGy8mICOGf&s=10",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeFMt4m-LHGVGDHvlo3tPUM_PsoXLKBbLHuv4X5C_rapDK7qOGy8mICOGf&s=10"
+    }
+  ]
+}

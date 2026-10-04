@@ -1,0 +1,6 @@
+{
+  "name": "MIT-WPU DoCSA Placements Portal",
+  "description": "Official placement showcase and banner portal for Department of Computer Science and Applications (DoCSA), MIT World Peace University Pune.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
