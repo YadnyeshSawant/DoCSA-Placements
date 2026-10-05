@@ -4,6 +4,35 @@
   "_SECTION_NOTE_3": "====================================================================",
   "individualPlacements": [
     {
+      "_comment": "1. INDIVIDUAL: Qunatiphi - Tanveer Prakash Singh",
+      "id": "placement-individual-1791185999583",
+      "type": "individual",
+      "company": "Qunatiphi",
+      "companyTagline": "Technology & Innovation",
+      "companyLogoType": "custom",
+      "role": "Machine Learning Intern",
+      "placementType": "Intern + PPO",
+      "package": "8.5 LPA",
+      "batchYear": "2025-27",
+      "department": "Department of Computer Science and Applications (DoCSA)",
+      "school": "School of Computer Science & Engineering",
+      "location": "Pune / Mumbai",
+      "placedDate": "October 2024",
+      "description": "Heartiest congratulations to our student on securing placement!",
+      "students": [
+        {
+          "id": "student-1791185999583-1",
+          "name": "Tanveer Prakash Singh",
+          "program": "MCA (Master of Computer Applications)",
+          "rollNo": "1272250158",
+          "photoUrl": "https://media.licdn.com/dms/image/v2/D4D03AQEd8kWLZZT3kQ/profile-displayphoto-crop_800_800/B4DZyL8JiYH4AI-/0/1771874328092?e=1792627200&v=beta&t=G7lVr_XdVe0gNtsVd4szw_9zWmdNJr1m52ackMFbpd0",
+          "role": "Machine Learning Intern",
+          "quote": "Grateful to MIT-WPU DoCSA for outstanding placement support."
+        }
+      ],
+      "customLogoUrl": "https://logovectorseek.com/wp-content/uploads/2021/06/quantiphi-inc-logo-vector.png"
+    },
+    {
       "_comment": "1. INDIVIDUAL: Celebal Technologies - Siddharth Phadtare",
       "id": "placement-celebal-siddharth-phadtare-2025-27",
       "type": "individual",
