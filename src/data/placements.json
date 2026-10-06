@@ -60,7 +60,7 @@
           "quote": "Grateful to DoCSA faculty and the MIT-WPU Placement Cell for continuous guidance and placement preparation."
         }
       ],
-      "congratulationsSubtitle": "On your successful Internship & Placement via Celebal Excellence Internship!"
+      "congratulationsSubtitle": "On your successful internship!"
     },
     {
       "_comment": "2. INDIVIDUAL: Celebal Technologies - Tanvi Ballal",
@@ -89,7 +89,7 @@
           "quote": "Thrilled to embark on my corporate journey with Celebal Technologies. Special thanks to DoCSA for immense support."
         }
       ],
-      "congratulationsSubtitle": "On your successful Internship & Placement via Celebal Excellence Internship!"
+      "congratulationsSubtitle": "On your successful internship!"
     },
     {
       "_comment": "3. INDIVIDUAL: Celebal Technologies - Harshana Yadav",
@@ -118,7 +118,7 @@
           "quote": "Honored to represent MIT-WPU DoCSA at Celebal Technologies with an Intern + PPO offer."
         }
       ],
-      "congratulationsSubtitle": "On your successful Internship & Placement via Celebal Excellence Internship!"
+      "congratulationsSubtitle": "On your successful internship!"
     },
     {
       "_comment": "4. INDIVIDUAL: Celebal Technologies - Izhan Shaikh",
@@ -147,7 +147,7 @@
           "quote": "Heartfelt thanks to our professors and the placement cell for preparing us thoroughly for Celebal Technologies."
         }
       ],
-      "congratulationsSubtitle": "On your successful Internship & Placement via Celebal Excellence Internship!"
+      "congratulationsSubtitle": "On your successful internship!"
     },
     {
       "_comment": "5. INDIVIDUAL: Celebal Technologies - Palak Rana",
@@ -175,7 +175,8 @@
           "role": "Data Engineer",
           "quote": "Grateful for this wonderful milestone with Celebal Technologies. Proud to be a student of MIT-WPU DoCSA."
         }
-      ]
+      ],
+      "congratulationsSubtitle": "On your successful internship!"
     },
     {
       "_comment": "1. INDIVIDUAL: Bentley Systems - Himanshu Pokhriya",
@@ -204,7 +205,8 @@
           "quote": "Grateful to MIT-WPU DoCSA for outstanding placement support."
         }
       ],
-      "customLogoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAacZBU264OYB2tRJm0qF0EViDCpg38aBQKRCSiXwpyIZfNPYxznM98kA&s=10"
+      "customLogoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAacZBU264OYB2tRJm0qF0EViDCpg38aBQKRCSiXwpyIZfNPYxznM98kA&s=10",
+      "congratulationsSubtitle": "On your successful internship!"
     },
     {
       "_comment": "6. INDIVIDUAL: Deutsche Bank - Mohammad Ali Mir",
