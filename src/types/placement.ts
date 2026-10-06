@@ -23,6 +23,7 @@ export interface PlacementRecord {
   customLogoUrl?: string;
   role: string;
   placementType: PlacementType;
+  congratulationsSubtitle?: string; // e.g. "On your successful placement!" or "On your successful internship!" or "On your successful internship & placement!"
   package?: string; // e.g. "14.5 LPA" or "₹65,000 / mo"
   batchYear: string; // e.g. "2024-25"
   department: string; // "Department of Computer Science and Applications (DoCSA)"

@@ -4,10 +4,10 @@
   "_SECTION_NOTE_3": "====================================================================",
   "individualPlacements": [
     {
-      "_comment": "1. INDIVIDUAL: Qunatiphi - Tanveer Prakash Singh",
-      "id": "placement-individual-1791185999583",
+      "_comment": "1. INDIVIDUAL: Quantiphi - Student Name",
+      "id": "placement-individual-1791311300295",
       "type": "individual",
-      "company": "Qunatiphi",
+      "company": "Quantiphi",
       "companyTagline": "Technology & Innovation",
       "companyLogoType": "custom",
       "role": "Machine Learning Intern",
@@ -21,8 +21,8 @@
       "description": "Heartiest congratulations to our student on securing placement!",
       "students": [
         {
-          "id": "student-1791185999583-1",
-          "name": "Tanveer Prakash Singh",
+          "id": "student-1791311300295-1",
+          "name": "Tanveer Singh",
           "program": "MCA (Master of Computer Applications)",
           "rollNo": "1272250158",
           "photoUrl": "https://media.licdn.com/dms/image/v2/D4D03AQEd8kWLZZT3kQ/profile-displayphoto-crop_800_800/B4DZyL8JiYH4AI-/0/1771874328092?e=1792627200&v=beta&t=G7lVr_XdVe0gNtsVd4szw_9zWmdNJr1m52ackMFbpd0",
@@ -30,7 +30,8 @@
           "quote": "Grateful to MIT-WPU DoCSA for outstanding placement support."
         }
       ],
-      "customLogoUrl": "https://logovectorseek.com/wp-content/uploads/2021/06/quantiphi-inc-logo-vector.png"
+      "customLogoUrl": "https://logovectorseek.com/wp-content/uploads/2021/06/quantiphi-inc-logo-vector.png",
+      "congratulationsSubtitle": "On your successful internship!"
     },
     {
       "_comment": "1. INDIVIDUAL: Celebal Technologies - Siddharth Phadtare",
@@ -58,7 +59,8 @@
           "role": "Data Engineer",
           "quote": "Grateful to DoCSA faculty and the MIT-WPU Placement Cell for continuous guidance and placement preparation."
         }
-      ]
+      ],
+      "congratulationsSubtitle": "On your successful Internship & Placement via Celebal Excellence Internship!"
     },
     {
       "_comment": "2. INDIVIDUAL: Celebal Technologies - Tanvi Ballal",
@@ -86,7 +88,8 @@
           "role": "Data Engineer",
           "quote": "Thrilled to embark on my corporate journey with Celebal Technologies. Special thanks to DoCSA for immense support."
         }
-      ]
+      ],
+      "congratulationsSubtitle": "On your successful Internship & Placement via Celebal Excellence Internship!"
     },
     {
       "_comment": "3. INDIVIDUAL: Celebal Technologies - Harshana Yadav",
@@ -114,7 +117,8 @@
           "role": "Data Engineer",
           "quote": "Honored to represent MIT-WPU DoCSA at Celebal Technologies with an Intern + PPO offer."
         }
-      ]
+      ],
+      "congratulationsSubtitle": "On your successful Internship & Placement via Celebal Excellence Internship!"
     },
     {
       "_comment": "4. INDIVIDUAL: Celebal Technologies - Izhan Shaikh",
@@ -142,7 +146,8 @@
           "role": "Data Engineer",
           "quote": "Heartfelt thanks to our professors and the placement cell for preparing us thoroughly for Celebal Technologies."
         }
-      ]
+      ],
+      "congratulationsSubtitle": "On your successful Internship & Placement via Celebal Excellence Internship!"
     },
     {
       "_comment": "5. INDIVIDUAL: Celebal Technologies - Palak Rana",
@@ -200,6 +205,93 @@
         }
       ],
       "customLogoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAacZBU264OYB2tRJm0qF0EViDCpg38aBQKRCSiXwpyIZfNPYxznM98kA&s=10"
+    },
+    {
+      "_comment": "6. INDIVIDUAL: Deutsche Bank - Mohammad Ali Mir",
+      "id": "placement-db-individual-2025",
+      "type": "individual",
+      "company": "Deutsche Bank",
+      "companyTagline": "Agile Technology Center",
+      "companyLogoType": "deutsche-bank",
+      "role": "Graduate Tech Analyst (FinTech & High Frequency Trading Systems)",
+      "placementType": "Full-time Placement",
+      "package": "19.6 LPA",
+      "batchYear": "2024-25",
+      "department": "Department of Computer Science and Applications (DoCSA)",
+      "school": "School of Computer Science & Engineering",
+      "location": "Pune / Hinjewadi Phase 3",
+      "placedDate": "September 2024",
+      "description": "Profound congratulations to Mohammad Ali Mir on successfully cracking the prestigious Deutsche Bank Graduate Analyst placement drive!",
+      "students": [
+        {
+          "id": "db-1",
+          "name": "Mohammad Ali Mir",
+          "program": "MCA (Master of Computer Applications)",
+          "rollNo": "MITWPU23MCA015",
+          "photoUrl": "data:image/svg+xml;utf8,%0A%20%20%20%20%3Csvg%20viewBox%3D%220%200%20240%20280%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22bgGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%238B1E3F%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%235B0E23%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3C!--%20Background%20Shape%20--%3E%0A%20%20%20%20%20%20%3Crect%20width%3D%22240%22%20height%3D%22280%22%20fill%3D%22url(%23bgGrad)%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Shoulders%20%26%20Suit%20Jacket%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M20%20280%20C20%20215%2050%20185%20120%20185%20C190%20185%20220%20215%20220%20280%20Z%22%20fill%3D%22%23111827%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Formal%20Shirt%20--%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22120%2C185%2085%2C225%20155%2C225%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22100%2C185%20120%2C235%20140%2C185%22%20fill%3D%22%23F8FAFC%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20MIT-WPU%20Red%20Lanyard%20ribbon%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M96%20185%20L112%20280%20M144%20185%20L128%20280%22%20stroke%3D%22%238B1E3F%22%20stroke-width%3D%224.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22240%22%20width%3D%2220%22%20height%3D%2230%22%20rx%3D%223%22%20fill%3D%22%23FFFFFF%22%20stroke%3D%22%23CBD5E1%22%20stroke-width%3D%221%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22120%22%20cy%3D%22245%22%20r%3D%222%22%20fill%3D%22%23004B87%22%2F%3E%0A%20%20%20%20%20%20%3Cline%20x1%3D%22113%22%20y1%3D%22250%22%20x2%3D%22127%22%20y2%3D%22250%22%20stroke%3D%22%238B1E3F%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%20%20%20%20%3Cline%20x1%3D%22114%22%20y1%3D%22254%22%20x2%3D%22126%22%20y2%3D%22254%22%20stroke%3D%22%2394A3B8%22%20stroke-width%3D%221%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Tie%20--%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22113%2C188%20127%2C188%20131%2C230%20120%2C245%20109%2C230%22%20fill%3D%22%23B91C1C%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Suit%20Lapels%20--%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2250%2C280%2085%2C200%20120%2C240%20100%2C280%22%20fill%3D%22%23111827%22%2F%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22190%2C280%20155%2C200%20120%2C240%20140%2C280%22%20fill%3D%22%23111827%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Neck%20--%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%22104%22%20y%3D%22145%22%20width%3D%2232%22%20height%3D%2242%22%20rx%3D%224%22%20fill%3D%22%23DEAA88%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Head%20%2F%20Face%20--%3E%0A%20%20%20%20%20%20%3Cellipse%20cx%3D%22120%22%20cy%3D%22130%22%20rx%3D%2242%22%20ry%3D%2252%22%20fill%3D%22%23DEAA88%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Hair%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M78%20120%20C76%2080%20100%2065%20120%2065%20C145%2065%20165%2080%20162%20120%20C155%2090%20145%2080%20120%2080%20C95%2080%2085%2095%2078%20120%20Z%22%20fill%3D%22%232D2A26%22%2F%3E%0A%20%20%20%20%20%20%3C!--%20Hair%20volume%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M78%20115%20C75%2095%2088%2068%20120%2068%20C152%2068%20165%2095%20162%20115%20C158%2085%20135%2074%20120%2074%20C100%2074%2085%2085%2078%20115%20Z%22%20fill%3D%22%232D2A26%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Eyebrows%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M92%20112%20Q102%20108%20110%20112%22%20stroke%3D%22%232D2A26%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M130%20112%20Q138%20108%20148%20112%22%20stroke%3D%22%232D2A26%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Eyes%20--%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22102%22%20cy%3D%22122%22%20r%3D%224.5%22%20fill%3D%22%231E293B%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22138%22%20cy%3D%22122%22%20r%3D%224.5%22%20fill%3D%22%231E293B%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22104%22%20cy%3D%22120%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22120%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Glasses%20if%20applicable%20--%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Nose%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M120%20122%20L117%20138%20L123%20138%22%20stroke%3D%22%23A76D42%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Confident%20Smile%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M107%20152%20Q120%20162%20133%20152%22%20stroke%3D%22%238D3B3B%22%20stroke-width%3D%222.8%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Trim%20Beard%20%2F%20Grooming%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M102%20155%20Q120%20178%20138%20155%22%20stroke%3D%22%232D2A26%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-dasharray%3D%222%203%22%20fill%3D%22none%22%20opacity%3D%220.4%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E%0A%20%20",
+          "gender": "male",
+          "role": "Associate Software Engineer",
+          "quote": "The rigorous curriculum and mock interview bootcamps organized by DoCSA faculty and the MIT-WPU Placement Cell gave me the exact edge needed for Deutsche Bank."
+        }
+      ]
+    },
+    {
+      "_comment": "7. INDIVIDUAL: Microsoft - Ananya Deshmukh",
+      "id": "placement-msft-individual-2025",
+      "type": "individual",
+      "company": "Microsoft",
+      "companyTagline": "Cloud + AI Systems",
+      "companyLogoType": "microsoft",
+      "role": "Software Development Engineer I (Azure Platform)",
+      "placementType": "Super Dream Offer",
+      "package": "28.5 LPA",
+      "batchYear": "2024-25",
+      "department": "Department of Computer Science and Applications (DoCSA)",
+      "school": "School of Computer Science & Engineering",
+      "location": "Hyderabad / Bengaluru",
+      "placedDate": "October 2024",
+      "description": "Exceptional milestone! Ananya Deshmukh from DoCSA bags the Super Dream Offer at Microsoft Azure Core Engineering with 28.5 LPA CTC.",
+      "students": [
+        {
+          "id": "msft-1",
+          "name": "Ananya Deshmukh",
+          "program": "B.Sc. Computer Science (Hons)",
+          "rollNo": "MITWPU22BCS003",
+          "photoUrl": "data:image/svg+xml;utf8,%0A%20%20%20%20%3Csvg%20viewBox%3D%220%200%20240%20280%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22bgGradF%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%238B1E3F%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%235B0E23%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3C!--%20Background%20Shape%20--%3E%0A%20%20%20%20%20%20%3Crect%20width%3D%22240%22%20height%3D%22280%22%20fill%3D%22url(%23bgGradF)%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Long%20Hair%20Behind%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M60%20110%20C50%20160%2055%20240%2065%20280%20L175%20280%20C185%20240%20190%20160%20180%20110%20Z%22%20fill%3D%22%232D2A26%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Shoulders%20%26%20Formal%20Blazer%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M25%20280%20C25%20220%2055%20190%20120%20190%20C185%20190%20215%20220%20215%20280%20Z%22%20fill%3D%22%230F172A%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Inner%20White%20Top%20%2F%20Blouse%20--%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22120%2C190%2090%2C235%20150%2C235%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%20%20%3Cellipse%20cx%3D%22120%22%20cy%3D%22205%22%20rx%3D%2216%22%20ry%3D%2212%22%20fill%3D%22%23FFDBAC%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Blazer%20Lapels%20--%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2265%2C280%2092%2C205%20120%2C245%20105%2C280%22%20fill%3D%22%230F172A%22%2F%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22175%2C280%20148%2C205%20120%2C245%20135%2C280%22%20fill%3D%22%230F172A%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Subtle%20pendant%20necklace%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M112%20188%20Q120%20196%20128%20188%22%20stroke%3D%22%23F59E0B%22%20stroke-width%3D%221.5%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22120%22%20cy%3D%22196%22%20r%3D%222%22%20fill%3D%22%23F59E0B%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Neck%20--%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%22106%22%20y%3D%22148%22%20width%3D%2228%22%20height%3D%2240%22%20rx%3D%224%22%20fill%3D%22%23FFDBAC%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Face%20--%3E%0A%20%20%20%20%20%20%3Cellipse%20cx%3D%22120%22%20cy%3D%22132%22%20rx%3D%2238%22%20ry%3D%2248%22%20fill%3D%22%23FFDBAC%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Front%20Hair%20Framing%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M78%20125%20C75%2080%2096%2066%20120%2066%20C144%2066%20165%2080%20162%20125%20C152%2095%20138%2082%20120%2082%20C102%2082%2086%2098%2078%20125%20Z%22%20fill%3D%22%232D2A26%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M74%20135%20C68%20180%2082%20220%2086%20240%20C80%20200%2078%20160%2084%20130%20Z%22%20fill%3D%22%232D2A26%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M166%20135%20C172%20180%20158%20220%20154%20240%20C160%20200%20162%20160%20156%20130%20Z%22%20fill%3D%22%232D2A26%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Eyebrows%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M94%20116%20Q103%20111%20110%20115%22%20stroke%3D%22%232D2A26%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M130%20115%20Q137%20111%20146%20116%22%20stroke%3D%22%232D2A26%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Eyes%20with%20lashes%20--%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22103%22%20cy%3D%22124%22%20r%3D%224.2%22%20fill%3D%22%231E293B%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22137%22%20cy%3D%22124%22%20r%3D%224.2%22%20fill%3D%22%231E293B%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22105%22%20cy%3D%22122%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22139%22%20cy%3D%22122%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M98%20120%20Q104%20118%20109%20120%22%20stroke%3D%22%230F172A%22%20stroke-width%3D%221.2%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M131%20120%20Q136%20118%20142%20120%22%20stroke%3D%22%230F172A%22%20stroke-width%3D%221.2%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Nose%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M120%20124%20L118%20138%20L122%20138%22%20stroke%3D%22%23B87748%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Warm%20Smile%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M108%20152%20Q120%20163%20132%20152%22%20stroke%3D%22%23991B1B%22%20stroke-width%3D%222.8%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M112%20153%20Q120%20158%20128%20153%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E%0A%20%20",
+          "gender": "female",
+          "role": "Software Development Engineer I",
+          "quote": "Cracking Microsoft directly from campus was my dream. Immense gratitude to my mentors at DoCSA for constant encouragement!"
+        }
+      ]
+    },
+    {
+      "_comment": "8. INDIVIDUAL: Amazon AWS - Rohan Kulkarni",
+      "id": "placement-amazon-individual-2025",
+      "type": "individual",
+      "company": "Amazon",
+      "companyTagline": "Amazon Web Services (AWS)",
+      "companyLogoType": "amazon",
+      "role": "Cloud Support Associate & DevOps Engineer",
+      "placementType": "Super Dream Offer",
+      "package": "24.0 LPA",
+      "batchYear": "2024-25",
+      "department": "Department of Computer Science and Applications (DoCSA)",
+      "school": "School of Computer Science & Engineering",
+      "location": "Bengaluru",
+      "placedDate": "September 2024",
+      "description": "Heartiest congratulations to Rohan Kulkarni on being selected for Amazon Web Services (AWS) Developer Support team.",
+      "students": [
+        {
+          "id": "amz-1",
+          "name": "Rohan Kulkarni",
+          "program": "MCA (Master of Computer Applications)",
+          "rollNo": "MITWPU23MCA033",
+          "photoUrl": "data:image/svg+xml;utf8,%0A%20%20%20%20%3Csvg%20viewBox%3D%220%200%20240%20280%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22bgGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%238B1E3F%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%235B0E23%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3C!--%20Background%20Shape%20--%3E%0A%20%20%20%20%20%20%3Crect%20width%3D%22240%22%20height%3D%22280%22%20fill%3D%22url(%23bgGrad)%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Shoulders%20%26%20Suit%20Jacket%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M20%20280%20C20%20215%2050%20185%20120%20185%20C190%20185%20220%20215%20220%20280%20Z%22%20fill%3D%22%23111827%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Formal%20Shirt%20--%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22120%2C185%2085%2C225%20155%2C225%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22100%2C185%20120%2C235%20140%2C185%22%20fill%3D%22%23F8FAFC%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20MIT-WPU%20Red%20Lanyard%20ribbon%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M96%20185%20L112%20280%20M144%20185%20L128%20280%22%20stroke%3D%22%238B1E3F%22%20stroke-width%3D%224.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22240%22%20width%3D%2220%22%20height%3D%2230%22%20rx%3D%223%22%20fill%3D%22%23FFFFFF%22%20stroke%3D%22%23CBD5E1%22%20stroke-width%3D%221%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22120%22%20cy%3D%22245%22%20r%3D%222%22%20fill%3D%22%23004B87%22%2F%3E%0A%20%20%20%20%20%20%3Cline%20x1%3D%22113%22%20y1%3D%22250%22%20x2%3D%22127%22%20y2%3D%22250%22%20stroke%3D%22%238B1E3F%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%20%20%20%20%3Cline%20x1%3D%22114%22%20y1%3D%22254%22%20x2%3D%22126%22%20y2%3D%22254%22%20stroke%3D%22%2394A3B8%22%20stroke-width%3D%221%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Tie%20--%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22113%2C188%20127%2C188%20131%2C230%20120%2C245%20109%2C230%22%20fill%3D%22%23B91C1C%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Suit%20Lapels%20--%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2250%2C280%2085%2C200%20120%2C240%20100%2C280%22%20fill%3D%22%23111827%22%2F%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22190%2C280%20155%2C200%20120%2C240%20140%2C280%22%20fill%3D%22%23111827%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Neck%20--%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%22104%22%20y%3D%22145%22%20width%3D%2232%22%20height%3D%2242%22%20rx%3D%224%22%20fill%3D%22%23FFDBAC%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Head%20%2F%20Face%20--%3E%0A%20%20%20%20%20%20%3Cellipse%20cx%3D%22120%22%20cy%3D%22130%22%20rx%3D%2242%22%20ry%3D%2252%22%20fill%3D%22%23FFDBAC%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Hair%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M78%20120%20C76%2080%20100%2065%20120%2065%20C145%2065%20165%2080%20162%20120%20C155%2090%20145%2080%20120%2080%20C95%2080%2085%2095%2078%20120%20Z%22%20fill%3D%22%2333271F%22%2F%3E%0A%20%20%20%20%20%20%3C!--%20Hair%20volume%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M78%20115%20C75%2095%2088%2068%20120%2068%20C152%2068%20165%2095%20162%20115%20C158%2085%20135%2074%20120%2074%20C100%2074%2085%2085%2078%20115%20Z%22%20fill%3D%22%2333271F%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Eyebrows%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M92%20112%20Q102%20108%20110%20112%22%20stroke%3D%22%2333271F%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M130%20112%20Q138%20108%20148%20112%22%20stroke%3D%22%2333271F%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Eyes%20--%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22102%22%20cy%3D%22122%22%20r%3D%224.5%22%20fill%3D%22%231E293B%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22138%22%20cy%3D%22122%22%20r%3D%224.5%22%20fill%3D%22%231E293B%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22104%22%20cy%3D%22120%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22120%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Glasses%20if%20applicable%20--%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Nose%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M120%20122%20L117%20138%20L123%20138%22%20stroke%3D%22%23A76D42%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Confident%20Smile%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M107%20152%20Q120%20162%20133%20152%22%20stroke%3D%22%238D3B3B%22%20stroke-width%3D%222.8%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Trim%20Beard%20%2F%20Grooming%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M102%20155%20Q120%20178%20138%20155%22%20stroke%3D%22%2333271F%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-dasharray%3D%222%203%22%20fill%3D%22none%22%20opacity%3D%220.4%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E%0A%20%20",
+          "gender": "male",
+          "role": "Cloud Support Associate",
+          "quote": "Working on real-world cloud labs and hackathons conducted at DoCSA prepared me for Amazon leadership principles and deep technical rounds."
+        }
+      ]
     }
   ],
   "_SECTION_NOTE_4": "====================================================================",
@@ -232,14 +324,6 @@
           "role": "Data Engineer"
         },
         {
-          "id": "celebal-student-5",
-          "name": "Palak Rana",
-          "program": "MCA (Master of Computer Applications)",
-          "rollNo": "MITWPU25MCA105",
-          "photoUrl": "https://media.licdn.com/dms/image/v2/D4D03AQHzYkEhuA-g4w/profile-displayphoto-scale_400_400/B4DZ90uRO8HgAg-/0/1784369714785?e=1792627200&v=beta&t=TRo-wKs1KKssyF1hIKL0pibMMAUNExQds_Ry8KhA9xM",
-          "role": "Data Engineer"
-        },
-        {
           "id": "celebal-student-3",
           "name": "Harshana Yadav",
           "program": "MCA (Master of Computer Applications)",
@@ -264,7 +348,8 @@
           "role": "Data Engineer",
           "quote": "Proud to be placed through MIT-WPU DoCSA Campus Placements."
         }
-      ]
+      ],
+      "congratulationsSubtitle": "On your successful Internship & Placement via Celebal Excellence Internship!"
     }
   ]
 }

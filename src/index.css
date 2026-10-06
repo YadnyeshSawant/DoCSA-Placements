@@ -46,3 +46,48 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Slide Motion + Spring Pop Keyframes for Slideshow Banners */
+@keyframes slidePopRight {
+  0% {
+    opacity: 0;
+    transform: translateX(70px) scale(0.9);
+  }
+  65% {
+    opacity: 1;
+    transform: translateX(-8px) scale(1.025);
+  }
+  85% {
+    transform: translateX(3px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slidePopLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-70px) scale(0.9);
+  }
+  65% {
+    opacity: 1;
+    transform: translateX(8px) scale(1.025);
+  }
+  85% {
+    transform: translateX(-3px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.animate-slide-pop-next {
+  animation: slidePopRight 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.animate-slide-pop-prev {
+  animation: slidePopLeft 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}

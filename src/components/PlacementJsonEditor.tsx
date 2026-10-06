@@ -81,6 +81,14 @@ const PLACEMENT_TYPES = [
   'Dream Offer',
 ];
 
+export const CONGRATULATIONS_SUBTITLE_OPTIONS = [
+  'On your successful placement!',
+  'On your successful internship!',
+  'On your successful internship & placement!',
+  'On your successful corporate internship!',
+  'On being selected for prestigious placement!',
+];
+
 export const PROGRAM_OPTIONS = [
   'MCA (Master of Computer Applications)',
   'MSC CS (MSC Computer Science)',
@@ -127,23 +135,27 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
   // Synchronize new company and logo into partnersList state
   const syncCompanyToPartners = (name: string, logoUrl?: string) => {
     const trimmed = name.trim();
-    if (!trimmed || trimmed.toLowerCase() === 'new company') return;
+    if (!trimmed || trimmed.length < 2 || trimmed.toLowerCase() === 'new company') return;
 
     setPartnersList((prev) => {
-      const idx = prev.findIndex(
+      // Filter out any partial or accidental 1-character fragments
+      const cleanPrev = prev.filter((p) => (p.companyName || '').trim().length >= 2);
+      const idx = cleanPrev.findIndex(
         (p) => p.companyName.trim().toLowerCase() === trimmed.toLowerCase()
       );
       if (idx >= 0) {
-        if (logoUrl !== undefined && logoUrl !== prev[idx].logoLink) {
-          const updated = [...prev];
+        if (logoUrl !== undefined && logoUrl !== cleanPrev[idx].logoLink) {
+          const updated = [...cleanPrev];
           updated[idx] = {
             ...updated[idx],
+            companyName: trimmed,
+            name: trimmed,
             logoLink: logoUrl,
             logo: logoUrl,
           };
           return updated;
         }
-        return prev;
+        return cleanPrev;
       } else {
         const newPartner: MarqueePartnerItem = {
           id: `partner-auto-${Date.now()}-${Math.floor(Math.random() * 10000)}`,
@@ -152,7 +164,7 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
           logoLink: logoUrl || '',
           logo: logoUrl || '',
         };
-        return [...prev, newPartner];
+        return [...cleanPrev, newPartner];
       }
     });
   };
@@ -1171,10 +1183,11 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
                             type="text"
                             value={selectedPlacement.company}
                             onChange={(e) => {
-                              const newName = e.target.value;
-                              handleUpdatePlacement('company', newName);
-                              if (newName.trim()) {
-                                syncCompanyToPartners(newName, selectedPlacement.customLogoUrl);
+                              handleUpdatePlacement('company', e.target.value);
+                            }}
+                            onBlur={() => {
+                              if (selectedPlacement.company && selectedPlacement.company.trim().length >= 2) {
+                                syncCompanyToPartners(selectedPlacement.company, selectedPlacement.customLogoUrl);
                               }
                             }}
                             className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#8B1E3F] font-semibold text-slate-900 text-xs"
@@ -1208,6 +1221,9 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
                                       : item
                                   )
                                 );
+                                if (selectedPlacement.company && selectedPlacement.company.trim().length >= 2) {
+                                  syncCompanyToPartners(selectedPlacement.company, url);
+                                }
                               } else {
                                 handleUpdatePlacement('companyLogoType', 'custom');
                               }
@@ -1227,10 +1243,11 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
                             type="text"
                             value={selectedPlacement.customLogoUrl || ''}
                             onChange={(e) => {
-                              const newLogoUrl = e.target.value;
-                              handleUpdatePlacement('customLogoUrl', newLogoUrl);
-                              if (selectedPlacement.company && selectedPlacement.company.trim()) {
-                                syncCompanyToPartners(selectedPlacement.company, newLogoUrl);
+                              handleUpdatePlacement('customLogoUrl', e.target.value);
+                            }}
+                            onBlur={() => {
+                              if (selectedPlacement.company && selectedPlacement.company.trim().length >= 2) {
+                                syncCompanyToPartners(selectedPlacement.company, selectedPlacement.customLogoUrl);
                               }
                             }}
                             className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#8B1E3F] font-mono text-[11px]"
@@ -1279,6 +1296,66 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
                         </select>
                       </div>
 
+                      {/* Placed Month / Date (Shifted beside Placement Type) */}
+                      <div>
+                        <label className="block font-semibold text-slate-700 mb-1">Placed Month / Date</label>
+                        <input
+                          type="text"
+                          value={selectedPlacement.placedDate}
+                          onChange={(e) => handleUpdatePlacement('placedDate', e.target.value)}
+                          className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#8B1E3F]"
+                          placeholder="e.g. October 2024"
+                        />
+                      </div>
+
+                      {/* Congratulations Subtitle / Message */}
+                      <div className="sm:col-span-2">
+                        <div className="flex items-center justify-between mb-1">
+                          <label className="block font-semibold text-slate-700">
+                            Congratulations Subtitle / Message *
+                          </label>
+                          <span className="text-[10px] text-[#1E5C9E] font-bold">Banner Subtitle</span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          <select
+                            value={
+                              CONGRATULATIONS_SUBTITLE_OPTIONS.includes(
+                                selectedPlacement.congratulationsSubtitle || ''
+                              )
+                                ? selectedPlacement.congratulationsSubtitle || ''
+                                : selectedPlacement.congratulationsSubtitle
+                                ? '__custom__'
+                                : ''
+                            }
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              if (val === '__custom__') {
+                                // keep current value
+                              } else {
+                                handleUpdatePlacement('congratulationsSubtitle', val);
+                              }
+                            }}
+                            className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#8B1E3F] text-xs font-medium"
+                          >
+                            <option value="">Auto (Based on Placement Type)</option>
+                            {CONGRATULATIONS_SUBTITLE_OPTIONS.map((opt) => (
+                              <option key={opt} value={opt}>
+                                {opt}
+                              </option>
+                            ))}
+                            <option value="__custom__">Custom Text...</option>
+                          </select>
+
+                          <input
+                            type="text"
+                            value={selectedPlacement.congratulationsSubtitle || ''}
+                            onChange={(e) => handleUpdatePlacement('congratulationsSubtitle', e.target.value)}
+                            placeholder="Type custom subtitle (e.g. On your successful internship!)"
+                            className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#8B1E3F] text-xs font-semibold text-slate-800"
+                          />
+                        </div>
+                      </div>
+
                       {/* Batch Year */}
                       <div>
                         <label className="block font-semibold text-slate-700 mb-1">Batch Year *</label>
@@ -1322,18 +1399,6 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
                           onChange={(e) => handleUpdatePlacement('location', e.target.value)}
                           className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#8B1E3F]"
                           placeholder="e.g. Pune / Jaipur"
-                        />
-                      </div>
-
-                      {/* Placed Date */}
-                      <div>
-                        <label className="block font-semibold text-slate-700 mb-1">Placed Month / Date</label>
-                        <input
-                          type="text"
-                          value={selectedPlacement.placedDate}
-                          onChange={(e) => handleUpdatePlacement('placedDate', e.target.value)}
-                          className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#8B1E3F]"
-                          placeholder="e.g. October 2024"
                         />
                       </div>
 

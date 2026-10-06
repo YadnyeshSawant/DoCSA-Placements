@@ -31,7 +31,7 @@ export const IndividualPlacementBanner: React.FC<IndividualPlacementBannerProps>
 
         {/* On mobile/tablet: Department and School line is below MIT logo */}
         <div className="max-w-md pt-0.5 order-2 md:order-1">
-          <p className="text-[#8B1E3F] font-bold text-xs sm:text-sm md:text-base tracking-wide uppercase">
+          <p className="text-[#1E5C9E] font-bold text-xs sm:text-sm md:text-base tracking-wide uppercase">
             {placement.department}
           </p>
           <p className="text-slate-500 text-[11px] sm:text-xs font-medium">
@@ -49,11 +49,19 @@ export const IndividualPlacementBanner: React.FC<IndividualPlacementBannerProps>
             <h2 className="text-xl sm:text-2xl md:text-[26px] font-extrabold italic text-slate-800 tracking-tight leading-tight">
               Heartiest
             </h2>
-            <h1 className="text-3xl sm:text-4xl md:text-[42px] font-black italic text-[#8B1E3F] tracking-tighter leading-tight mt-0.5">
+            <h1 className="text-3xl sm:text-4xl md:text-[42px] font-black italic text-[#1E5C9E] tracking-tighter leading-tight mt-0.5">
               CONGRATULATIONS
             </h1>
             <p className="text-xs sm:text-sm font-semibold text-slate-700 mt-1">
-              on your successful placement!
+              {placement.congratulationsSubtitle ||
+                (placement.placementType === 'Internship cum Placement' ||
+                placement.placementType?.includes('Intern +') ||
+                placement.placementType?.includes('and Placement') ||
+                placement.placementType?.includes('& Placement')
+                  ? 'On your successful internship & placement!'
+                  : placement.placementType?.toLowerCase().includes('intern')
+                  ? 'On your successful internship!'
+                  : 'On your successful placement!')}
             </p>
           </div>
 
@@ -130,8 +138,8 @@ export const IndividualPlacementBanner: React.FC<IndividualPlacementBannerProps>
         </div>
       </div>
 
-      {/* Bottom Footer Section: Maroon Background with Geometric Arcs (matching Image 2) */}
-      <div className="relative bg-[#8B1E3F] text-white overflow-hidden z-10 pt-4 pb-3 px-4 sm:px-8">
+      {/* Bottom Footer Section: Blue Background with Geometric Arcs */}
+      <div className="relative bg-[#1E5C9E] text-white overflow-hidden z-10 pt-4 pb-3 px-4 sm:px-8">
         {/* Geometric circles & lines inside footer */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <GeometricPattern variant="maroon" className="w-full h-full" />
@@ -139,10 +147,10 @@ export const IndividualPlacementBanner: React.FC<IndividualPlacementBannerProps>
 
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
           <div>
-            <p className="text-xs font-semibold text-rose-100">
+            <p className="text-xs font-semibold text-blue-100">
               Department of Computer Science and Applications (DoCSA)
             </p>
-            <p className="text-[11px] text-rose-200/80">
+            <p className="text-[11px] text-blue-200/80">
               MIT World Peace University, Kothrud, Pune - 411038
             </p>
           </div>

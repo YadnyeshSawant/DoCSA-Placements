@@ -85,7 +85,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
             School of Computer Science & Engineering
           </p>
 
-          <h1 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-black text-[#8B1E3F] tracking-tight whitespace-nowrap leading-tight">
+          <h1 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-black text-[#1E5C9E] tracking-tight whitespace-nowrap leading-tight">
             Department of Computer Science & Applications
           </h1>
 
@@ -100,14 +100,14 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
             <span className="font-medium text-slate-500">
               {isReady ? 'Ready to enter' : 'Loading placement portal...'}
             </span>
-            <span className="font-mono font-bold text-[#8B1E3F] tabular-nums">
+            <span className="font-mono font-bold text-[#1E5C9E] tabular-nums">
               {progress}%
             </span>
           </div>
 
           <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden border border-slate-200/80">
             <div
-              className="h-full bg-gradient-to-r from-[#004B87] via-[#8B1E3F] to-[#E5A93C] transition-all duration-400 ease-out rounded-full relative"
+              className="h-full bg-gradient-to-r from-[#1E5C9E] via-[#004B87] to-[#E5A93C] transition-all duration-400 ease-out rounded-full relative"
               style={{ width: `${progress}%` }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-pulse" />
@@ -122,8 +122,8 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
             onClick={handleLaunch}
             className={`w-full group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm tracking-wide transition-all duration-300 cursor-pointer shadow-md hover:shadow-lg active:scale-95 ${
               isReady
-                ? 'bg-[#8B1E3F] hover:bg-[#721833] text-white ring-4 ring-[#8B1E3F]/20 shadow-[#8B1E3F]/25'
-                : 'bg-white hover:bg-slate-50 text-slate-800 hover:text-[#8B1E3F] border border-slate-200/90 hover:border-[#8B1E3F]/40'
+                ? 'bg-[#1E5C9E] hover:bg-[#17487c] text-white ring-4 ring-[#1E5C9E]/20 shadow-[#1E5C9E]/25'
+                : 'bg-white hover:bg-slate-50 text-slate-800 hover:text-[#1E5C9E] border border-slate-200/90 hover:border-[#1E5C9E]/40'
             }`}
           >
             <span>{isReady ? 'Enter Placement Portal' : 'Launch Website'}</span>
@@ -140,7 +140,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
       <footer className="relative z-10 w-full pb-6 px-6 text-center space-y-2">
         <div className="flex items-center justify-center gap-3 text-slate-600">
           <div className="h-px w-8 sm:w-16 bg-gradient-to-r from-transparent to-[#E5A93C]" />
-          <p className="font-serif text-xs sm:text-sm font-bold tracking-widest text-[#8B1E3F]">
+          <p className="font-serif text-xs sm:text-sm font-bold tracking-widest text-[#1E5C9E]">
             ॥ विश्वशान्तिर्ध्रुवं ध्रुवा ॥
           </p>
           <div className="h-px w-8 sm:w-16 bg-gradient-to-l from-transparent to-[#E5A93C]" />
