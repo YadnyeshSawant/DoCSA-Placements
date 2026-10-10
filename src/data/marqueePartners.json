@@ -1,20 +1,20 @@
 {
-  "Highest Package": "₹28.5 LPA",
-  "Average CTC": "₹8.4 LPA",
+  "Highest Package": "₹8.5 LPA",
+  "Average CTC": "₹7 LPA",
   "Placements & Internships": "340+",
   "Corporate Recruiters": "85+",
-  "highestPackage": "₹28.5 LPA",
-  "averageCTC": "₹8.4 LPA",
+  "highestPackage": "₹8.5 LPA",
+  "averageCTC": "₹7 LPA",
   "placementsAndInternships": "340+",
   "corporateRecruiters": "85+",
   "stats": {
     "highestPackage": {
-      "value": "₹28.5 LPA",
+      "value": "₹8.5 LPA",
       "label": "Highest Package",
-      "subtext": "Super Dream Offers (Microsoft, AWS)"
+      "subtext": "Internship and PPO (MCA)"
     },
     "averageCTC": {
-      "value": "₹8.4 LPA",
+      "value": "₹7 LPA",
       "label": "Average CTC",
       "subtext": "Across MCA, BCA & M.Sc Programs"
     },
