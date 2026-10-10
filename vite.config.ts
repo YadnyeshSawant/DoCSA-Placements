@@ -1,11 +1,16 @@
 import { defineConfig, Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+import { handleGitHubCommit } from './api/github-commit';
 
 function imageProxyPlugin(): Plugin {
   return {
-    name: 'image-proxy',
+    name: 'backend-api-routes',
     configureServer(server) {
+      server.middlewares.use('/api/github-commit', async (req, res) => {
+        await handleGitHubCommit(req, res);
+      });
+
       server.middlewares.use('/api/proxy-image', async (req, res) => {
         try {
           const parsed = new URL(req.url || '', 'http://localhost:3000');

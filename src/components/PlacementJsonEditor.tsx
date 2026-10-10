@@ -4,6 +4,7 @@ import { CompanyLogo, CompanyLogoType } from './CompanyLogo';
 import { IndividualPlacementBanner } from './banners/IndividualPlacementBanner';
 import { GroupPlacementBanner } from './banners/GroupPlacementBanner';
 import { PartnerCompaniesJsonEditor, MarqueePartnerItem } from './PartnerCompaniesJsonEditor';
+import { GitHubSyncModal } from './GitHubSyncModal';
 import rawDefaultData from '../data/placements.json';
 import rawDefaultPartnersData from '../data/marqueePartners.json';
 import {
@@ -30,6 +31,7 @@ import {
   GripVertical,
   ChevronUp,
   ChevronDown,
+  FolderGit2,
 } from 'lucide-react';
 
 interface PlacementJsonEditorProps {
@@ -195,6 +197,17 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
   // Show live banner preview card
   const [showLivePreview, setShowLivePreview] = useState(true);
 
+  // GitHub commit modal
+  const [isGitHubModalOpen, setIsGitHubModalOpen] = useState(false);
+
+  // Baseline placement IDs originally loaded from the repository
+  const baselinePlacementIds = useMemo(() => {
+    return new Set(placements.map((p) => p.id));
+  }, [placements]);
+
+  // Track placement records newly added during this session
+  const [newlyCreatedIds, setNewlyCreatedIds] = useState<Set<string>>(new Set());
+
   // Drag and drop state for students reordering
   const [draggedStudentIndex, setDraggedStudentIndex] = useState<number | null>(null);
   const [dragOverStudentIndex, setDragOverStudentIndex] = useState<number | null>(null);
@@ -237,6 +250,31 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
   const selectedPlacement = useMemo(() => {
     return workingPlacements.find((p) => p.id === selectedPlacementId) || workingPlacements[0];
   }, [workingPlacements, selectedPlacementId]);
+
+  // Dynamic commit message matching: "new - prn - name" if newly added, otherwise "update - prn - name"
+  const placementCommitMessage = useMemo(() => {
+    if (!selectedPlacement) return 'update - student prn - name';
+
+    const isNew =
+      newlyCreatedIds.has(selectedPlacement.id) ||
+      !baselinePlacementIds.has(selectedPlacement.id);
+    const action = isNew ? 'new' : 'update';
+
+    if (selectedPlacement.type === 'individual') {
+      const student = selectedPlacement.students?.[0];
+      const prn = student?.rollNo?.trim() || 'student prn';
+      const name = student?.name?.trim() || 'name';
+      return `${action} - ${prn} - ${name}`;
+    } else {
+      const students = selectedPlacement.students || [];
+      const prns = students.map((s) => s.rollNo?.trim()).filter(Boolean).join(', ');
+      const names = students.map((s) => s.name?.trim()).filter(Boolean).join(', ');
+      if (prns && names) {
+        return `${action} - ${prns} - ${names}`;
+      }
+      return `${action} - ${selectedPlacement.company} - ${students.length} students`;
+    }
+  }, [selectedPlacement, newlyCreatedIds, baselinePlacementIds]);
 
   // Filtered lists for the sidebar
   const individualList = useMemo(() => {
@@ -421,6 +459,7 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
   // 5. CREATE NEW PLACEMENT RECORD
   const handleCreateNewPlacement = (type: 'individual' | 'group') => {
     const newId = `placement-${type}-${Date.now()}`;
+    setNewlyCreatedIds((prev) => new Set(prev).add(newId));
     const newRecord: PlacementRecord = {
       id: newId,
       type,
@@ -809,10 +848,21 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
           <button
             type="button"
             onClick={handleSaveAndDownload}
-            className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-bold text-white bg-[#8B1E3F] hover:bg-[#721833] rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-bold text-white bg-[#8B1E3F] hover:bg-[#721833] rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer"
           >
             <Download className="w-4 h-4 text-amber-300" />
-            <span>Download placements.json</span>
+            <span>Download JSON</span>
+          </button>
+
+          {/* SAVE CHANGES BUTTON */}
+          <button
+            type="button"
+            onClick={() => setIsGitHubModalOpen(true)}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer border border-slate-700"
+            title="Directly commit updates to your GitHub repository and trigger auto-deploy on Vercel"
+          >
+            <FolderGit2 className="w-4 h-4 text-emerald-400" />
+            <span>SAVE CHANGES</span>
           </button>
         </div>
       </div>
@@ -1648,6 +1698,27 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
           </div>
         </div>
       )}
+
+      {/* GitHub Direct Sync Modal */}
+      <GitHubSyncModal
+        isOpen={isGitHubModalOpen}
+        onClose={() => setIsGitHubModalOpen(false)}
+        fileName="placements.json"
+        filePath="src/data/placements.json"
+        fileContent={JSON.stringify(formatStructuredJson(workingPlacements), null, 2)}
+        defaultCommitMessage={placementCommitMessage}
+        onCommitSuccess={(res) => {
+          if (selectedPlacement?.id) {
+            setNewlyCreatedIds((prev) => {
+              const next = new Set(prev);
+              next.delete(selectedPlacement.id);
+              return next;
+            });
+            baselinePlacementIds.add(selectedPlacement.id);
+          }
+          triggerToast('🚀 Successfully saved! Live website will update in a few 30–45 seconds.');
+        }}
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import rawDefaultPartnersData from '../data/marqueePartners.json';
+import { GitHubSyncModal } from './GitHubSyncModal';
 import {
   Download,
   Upload,
@@ -22,6 +23,7 @@ import {
   TrendingUp,
   Briefcase,
   Layers,
+  FolderGit2,
 } from 'lucide-react';
 
 export interface MarqueePartnerItem {
@@ -142,6 +144,9 @@ export const PartnerCompaniesJsonEditor: React.FC<PartnerCompaniesJsonEditorProp
   const [jsonError, setJsonError] = useState<string | null>(null);
   const [copiedNotification, setCopiedNotification] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  // GitHub commit modal
+  const [isGitHubModalOpen, setIsGitHubModalOpen] = useState(false);
 
   // Construct structured schema object
   const buildCurrentSchemaObject = (): MarqueePartnersSchema => {
@@ -523,10 +528,21 @@ export const PartnerCompaniesJsonEditor: React.FC<PartnerCompaniesJsonEditorProp
           <button
             type="button"
             onClick={handleDownloadJson}
-            className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-bold text-white bg-[#8B1E3F] hover:bg-[#721833] rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-bold text-white bg-[#8B1E3F] hover:bg-[#721833] rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer"
           >
             <Download className="w-4 h-4 text-amber-300" />
-            <span>Download marqueePartners.json</span>
+            <span>Download JSON</span>
+          </button>
+
+          {/* SAVE CHANGES BUTTON */}
+          <button
+            type="button"
+            onClick={() => setIsGitHubModalOpen(true)}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer border border-slate-700"
+            title="Directly commit updates to your GitHub repository and trigger auto-deploy on Vercel"
+          >
+            <FolderGit2 className="w-4 h-4 text-emerald-400" />
+            <span>SAVE CHANGES</span>
           </button>
         </div>
       </div>
@@ -998,6 +1014,19 @@ export const PartnerCompaniesJsonEditor: React.FC<PartnerCompaniesJsonEditorProp
           </div>
         </div>
       )}
+
+      {/* GitHub Direct Sync Modal */}
+      <GitHubSyncModal
+        isOpen={isGitHubModalOpen}
+        onClose={() => setIsGitHubModalOpen(false)}
+        fileName="marqueePartners.json"
+        filePath="src/data/marqueePartners.json"
+        fileContent={JSON.stringify(buildCurrentSchemaObject(), null, 2)}
+        defaultCommitMessage="update - hiring partners & stats"
+        onCommitSuccess={(res) => {
+          triggerToast('🚀 Successfully saved! Live website will update in a few 30–45 seconds.');
+        }}
+      />
     </div>
   );
 };

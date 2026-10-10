@@ -4,36 +4,6 @@
   "_SECTION_NOTE_3": "====================================================================",
   "individualPlacements": [
     {
-      "_comment": "1. INDIVIDUAL: trial - Yadnyesh Sawant",
-      "id": "placement-individual-1791617696529",
-      "type": "individual",
-      "company": "trial",
-      "companyTagline": "Technology & Innovation",
-      "companyLogoType": "custom",
-      "role": "Software Engineer",
-      "placementType": "Intern + PPO",
-      "package": "7 LPA",
-      "batchYear": "2025-27",
-      "department": "Department of Computer Science and Applications (DoCSA)",
-      "school": "School of Computer Science & Engineering",
-      "location": "Pune / Mumbai",
-      "placedDate": "October 2024",
-      "description": "Heartiest congratulations to our student on securing placement!",
-      "students": [
-        {
-          "id": "student-1791617696529-1",
-          "name": "Yadnyesh Sawant",
-          "program": "MCA (Master of Computer Applications)",
-          "rollNo": "MITWPU25MCA101",
-          "photoUrl": "https://media.licdn.com/dms/image/v2/D4D03AQHMOSV2NtrzpA/profile-displayphoto-scale_200_200/B4DaDP1GYTJYAc-/0/1790193201329?e=1793232000&v=beta&t=Cx2p9HpM0nDYL55GgY0jX_F_yEwRx9TeyyAZZLM8LYk",
-          "role": "Software Engineer",
-          "quote": "Grateful to MIT-WPU DoCSA for outstanding placement support."
-        }
-      ],
-      "customLogoUrl": "https://greekturtle-prod.s3.amazonaws.com/ab1e6b7a-64f2-4e8d-bc4a-c3c4b2b45b44",
-      "congratulationsSubtitle": "On your successful placement!"
-    },
-    {
       "_comment": "1. INDIVIDUAL: Quantiphi - Student Name",
       "id": "placement-individual-1791311300295",
       "type": "individual",
