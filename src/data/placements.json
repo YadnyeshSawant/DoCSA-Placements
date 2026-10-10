@@ -4,6 +4,36 @@
   "_SECTION_NOTE_3": "====================================================================",
   "individualPlacements": [
     {
+      "_comment": "1. INDIVIDUAL: NOVA GENX LABS - Pradnyesh Fulpagare",
+      "id": "placement-individual-1791653456175",
+      "type": "individual",
+      "company": "NOVA GENX LABS",
+      "companyTagline": "Technology & Innovation",
+      "companyLogoType": "custom",
+      "role": "AI Engineer ",
+      "placementType": "Intern + PPO",
+      "package": "6 LPA",
+      "batchYear": "2025-27",
+      "department": "Department of Computer Science and Applications (DoCSA)",
+      "school": "School of Computer Science & Engineering",
+      "location": "Pune / Mumbai",
+      "placedDate": "September 2026",
+      "description": "Heartiest congratulations to our student on securing placement!",
+      "students": [
+        {
+          "id": "student-1791653456175-1",
+          "name": "Pradnyesh Fulpagare",
+          "program": "MCA (Master of Computer Applications)",
+          "rollNo": "1272250462",
+          "photoUrl": "",
+          "role": "AI Engineer ",
+          "quote": "Grateful to MIT-WPU DoCSA for outstanding placement support."
+        }
+      ],
+      "customLogoUrl": "https://www.novagenxlabs.com/assets/logo2-DUKYHlDt.png",
+      "congratulationsSubtitle": "On your successful internship!"
+    },
+    {
       "_comment": "1. INDIVIDUAL: NOVA GENX LABS - Dhruvi Suryavanshi",
       "id": "placement-individual-1791653024052",
       "type": "individual",
@@ -22,7 +52,7 @@
       "students": [
         {
           "id": "student-1791653024052-1",
-          "name": "Dhruvi Suryavanshi",
+          "name": "Dhruvi Suryavanshi ",
           "program": "MCA (Master of Computer Applications)",
           "rollNo": "1272250495",
           "photoUrl": "https://media.licdn.com/dms/image/v2/D4D03AQE_pS5fwSX7gQ/profile-displayphoto-scale_200_200/B4DZ0POGpZKgAY-/0/1774076851849?e=1793232000&v=beta&t=oA4B7puzEXZnP_nyH6Nvpnh0OEluSXcNmIcLck52Do0",
