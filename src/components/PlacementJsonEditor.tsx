@@ -859,9 +859,9 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
             type="button"
             onClick={() => setIsGitHubModalOpen(true)}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer border border-slate-700"
-            title="Directly commit updates to your GitHub repository and trigger auto-deploy on Vercel"
+            title="Save and publish verified changes to the live placement portal"
           >
-            <FolderGit2 className="w-4 h-4 text-emerald-400" />
+            <Sparkles className="w-4 h-4 text-amber-300" />
             <span>SAVE CHANGES</span>
           </button>
         </div>

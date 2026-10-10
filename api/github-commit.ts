@@ -1,10 +1,19 @@
 /**
- * Vercel Serverless Function & Vite handler for GitHub commits using server-side Environment Variables:
- * - GITHUB_TOKEN
- * - GITHUB_OWNER
- * - GITHUB_REPO
- * - GITHUB_BRANCH (defaults to 'main')
+ * Secure Serverless Function & Vite handler for saving placement data.
+ * Features:
+ * - Server-side Environment Variables (GITHUB_TOKEN, GITHUB_OWNER, GITHUB_REPO, GITHUB_BRANCH)
+ * - Strict Path Whitelisting (prevents arbitrary file overwriting)
+ * - Payload validation (valid JSON check, size limit)
+ * - Institutional Email Enforcement (@mitwpu.edu.in required on server)
+ * - Anti-tampering & Information Disclosure Protection
  */
+
+const ALLOWED_FILES = new Set([
+  'src/data/placements.json',
+  'src/data/marqueePartners.json',
+]);
+
+const MAX_PAYLOAD_BYTES = 5 * 1024 * 1024; // 5 MB max payload
 
 export async function handleGitHubCommit(req: any, res: any) {
   // CORS headers
@@ -18,21 +27,15 @@ export async function handleGitHubCommit(req: any, res: any) {
     return;
   }
 
-  // GET: Returns environment variable status (without exposing secrets)
+  // GET: Returns environment variable status (without exposing private repo names)
   if (req.method === 'GET') {
     const hasEnvToken = !!process.env.GITHUB_TOKEN;
-    const defaultOwner = process.env.GITHUB_OWNER || '';
-    const defaultRepo = process.env.GITHUB_REPO || '';
-    const defaultBranch = process.env.GITHUB_BRANCH || 'main';
 
     res.setHeader('Content-Type', 'application/json');
     res.statusCode = 200;
     res.end(
       JSON.stringify({
         hasEnvToken,
-        defaultOwner,
-        defaultRepo,
-        defaultBranch,
       })
     );
     return;
@@ -40,6 +43,7 @@ export async function handleGitHubCommit(req: any, res: any) {
 
   if (req.method !== 'POST') {
     res.statusCode = 405;
+    res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ error: 'Method not allowed' }));
     return;
   }
@@ -55,7 +59,16 @@ export async function handleGitHubCommit(req: any, res: any) {
     } else if (!body) {
       // In Vite connect middleware or raw streams
       const buffers: any[] = [];
+      let totalLength = 0;
+
       for await (const chunk of req) {
+        totalLength += chunk.length;
+        if (totalLength > MAX_PAYLOAD_BYTES) {
+          res.statusCode = 413;
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({ success: false, message: 'Payload exceeds size limit.' }));
+          return;
+        }
         buffers.push(chunk);
       }
       const rawText = Buffer.concat(buffers).toString('utf-8');
@@ -74,51 +87,107 @@ export async function handleGitHubCommit(req: any, res: any) {
       token: clientToken,
     } = body || {};
 
-    // Prioritize server-side Environment Variables
+    // 1. Strict Path Whitelist (Prevent Path Traversal / Arbitrary File Overwrites)
+    if (!filePath || !ALLOWED_FILES.has(filePath)) {
+      res.statusCode = 403;
+      res.setHeader('Content-Type', 'application/json');
+      res.end(
+        JSON.stringify({
+          success: false,
+          message: 'Access denied: Only official placement data files can be updated.',
+        })
+      );
+      return;
+    }
+
+    // 2. Validate JSON Structure
+    if (!fileContent || typeof fileContent !== 'string') {
+      res.statusCode = 400;
+      res.setHeader('Content-Type', 'application/json');
+      res.end(
+        JSON.stringify({
+          success: false,
+          message: 'Missing or invalid file content.',
+        })
+      );
+      return;
+    }
+
+    try {
+      JSON.parse(fileContent);
+    } catch (err: any) {
+      res.statusCode = 400;
+      res.setHeader('Content-Type', 'application/json');
+      res.end(
+        JSON.stringify({
+          success: false,
+          message: 'Invalid payload: fileContent must be valid JSON.',
+        })
+      );
+      return;
+    }
+
+    // 3. Enforce MIT-WPU Institutional Identity on Server
+    const cleanEmail = (editorEmail || '').trim().toLowerCase();
+    const cleanName = (editorName || '').trim();
+
+    if (!cleanEmail.endsWith('@mitwpu.edu.in') || cleanEmail === '@mitwpu.edu.in') {
+      res.statusCode = 400;
+      res.setHeader('Content-Type', 'application/json');
+      res.end(
+        JSON.stringify({
+          success: false,
+          message: 'Unauthorized: Changes must be submitted with an official @mitwpu.edu.in email address.',
+        })
+      );
+      return;
+    }
+
+    if (cleanName.length < 2) {
+      res.statusCode = 400;
+      res.setHeader('Content-Type', 'application/json');
+      res.end(
+        JSON.stringify({
+          success: false,
+          message: 'Invalid author name: Please provide your full faculty or editor name.',
+        })
+      );
+      return;
+    }
+
+    // 4. Resolve Server-side Environment Variables
     const token = (process.env.GITHUB_TOKEN || clientToken || '').trim();
     const owner = (process.env.GITHUB_OWNER || clientOwner || '').trim();
     const repo = (process.env.GITHUB_REPO || clientRepo || '').trim();
     const branch = (process.env.GITHUB_BRANCH || clientBranch || 'main').trim();
 
     if (!token) {
-      res.statusCode = 400;
+      res.statusCode = 500;
       res.setHeader('Content-Type', 'application/json');
       res.end(
         JSON.stringify({
           success: false,
           message:
-            'GitHub Token not found. Please set the GITHUB_TOKEN environment variable in your Vercel settings or .env file.',
+            'Server authentication not configured. Please ensure GITHUB_TOKEN is set in your Vercel Project Settings.',
         })
       );
       return;
     }
 
     if (!owner || !repo) {
-      res.statusCode = 400;
+      res.statusCode = 500;
       res.setHeader('Content-Type', 'application/json');
       res.end(
         JSON.stringify({
           success: false,
           message:
-            'Repository details missing. Please set GITHUB_OWNER and GITHUB_REPO environment variables, or enter them in the modal.',
+            'Repository configuration missing. Please ensure GITHUB_OWNER and GITHUB_REPO are set.',
         })
       );
       return;
     }
 
-    if (!filePath || !fileContent) {
-      res.statusCode = 400;
-      res.setHeader('Content-Type', 'application/json');
-      res.end(
-        JSON.stringify({
-          success: false,
-          message: 'Missing filePath or fileContent.',
-        })
-      );
-      return;
-    }
-
-    // 1. Fetch current file SHA if file exists in the repo
+    // 5. Fetch current file SHA if file exists in the repo
     const getUrl = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${filePath}?ref=${encodeURIComponent(branch)}`;
     let currentSha: string | undefined = undefined;
 
@@ -139,7 +208,7 @@ export async function handleGitHubCommit(req: any, res: any) {
       res.end(
         JSON.stringify({
           success: false,
-          message: 'Unauthorized (401). Your GITHUB_TOKEN is invalid or has expired.',
+          message: 'Server authorization expired. Please update GITHUB_TOKEN.',
         })
       );
       return;
@@ -150,32 +219,30 @@ export async function handleGitHubCommit(req: any, res: any) {
       res.end(
         JSON.stringify({
           success: false,
-          message: `Failed to inspect repository: ${errData.message || getRes.statusText}`,
+          message: `Unable to verify existing file: ${errData.message || getRes.statusText}`,
         })
       );
       return;
     }
 
-    // 2. Encode UTF-8 content to base64
+    // 6. Encode UTF-8 content to base64
     const base64Content = Buffer.from(fileContent, 'utf-8').toString('base64');
 
-    // 3. Commit file via PUT request
+    // 7. Commit file via PUT request
     const putUrl = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${filePath}`;
     const payload: Record<string, any> = {
-      message: commitMessage || 'update - student prn - name',
+      message: commitMessage || `update - ${filePath.split('/').pop()} by ${cleanName} - ${cleanEmail}`,
       content: base64Content,
       branch,
+      author: {
+        name: cleanName,
+        email: cleanEmail,
+      },
+      committer: {
+        name: cleanName,
+        email: cleanEmail,
+      },
     };
-    if (editorName && editorEmail) {
-      payload.author = {
-        name: editorName,
-        email: editorEmail,
-      };
-      payload.committer = {
-        name: editorName,
-        email: editorEmail,
-      };
-    }
     if (currentSha) {
       payload.sha = currentSha;
     }
@@ -199,7 +266,7 @@ export async function handleGitHubCommit(req: any, res: any) {
       res.end(
         JSON.stringify({
           success: false,
-          message: putData.message || `Commit failed with status ${putRes.status}`,
+          message: putData.message || `Save operation failed (Status ${putRes.status})`,
         })
       );
       return;
@@ -210,10 +277,7 @@ export async function handleGitHubCommit(req: any, res: any) {
     res.end(
       JSON.stringify({
         success: true,
-        message: `Successfully committed ${filePath} to branch "${branch}"!`,
-        commitUrl:
-          putData.commit?.html_url ||
-          `https://github.com/${owner}/${repo}/commit/${putData.commit?.sha}`,
+        message: 'Changes saved successfully!',
         commitSha: putData.commit?.sha,
       })
     );
@@ -223,7 +287,7 @@ export async function handleGitHubCommit(req: any, res: any) {
     res.end(
       JSON.stringify({
         success: false,
-        message: `Server commit error: ${err?.message || 'unknown'}`,
+        message: `Internal server error: ${err?.message || 'unknown'}`,
       })
     );
   }

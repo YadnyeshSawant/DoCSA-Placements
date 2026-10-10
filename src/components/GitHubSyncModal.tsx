@@ -9,14 +9,12 @@ import {
   ServerEnvStatus,
 } from '../utils/githubCommit';
 import {
-  GitCommit,
-  FolderGit2,
+  ShieldCheck,
+  FileText,
   CheckCircle2,
   AlertCircle,
-  ExternalLink,
   Loader2,
   X,
-  Zap,
   User,
   Mail,
   Sparkles,
@@ -173,7 +171,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({
         <div className="bg-[#8B1E3F] text-white px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-xl bg-white/10 text-amber-300 border border-white/20">
-              <FolderGit2 className="w-5 h-5" />
+              <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
               <h2 className="text-base font-bold text-white flex items-center gap-2">
@@ -288,10 +286,10 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({
           <div className="bg-slate-900 text-slate-100 rounded-xl p-3.5 border border-slate-800 space-y-1.5">
             <div className="flex items-center justify-between text-[11px] text-slate-400">
               <span className="font-semibold flex items-center gap-1.5 text-amber-300">
-                <GitCommit className="w-3.5 h-3.5" />
-                <span>Generated Commit Message</span>
+                <FileText className="w-3.5 h-3.5" />
+                <span>Generated Audit Record</span>
               </span>
-              <span className="text-[10px] text-slate-400">Recorded in GitHub</span>
+              <span className="text-[10px] text-slate-400">Official Change Log</span>
             </div>
             <div className="font-mono text-[11px] text-emerald-400 bg-slate-950 p-2.5 rounded-lg border border-slate-800 break-all leading-relaxed select-all">
               {formattedCommitMessage}
@@ -308,27 +306,14 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({
 
           {/* Success Banner */}
           {commitResult?.success && (
-            <div className="p-4 rounded-xl border bg-emerald-50 border-emerald-200 text-emerald-900 space-y-2">
-              <div className="flex items-center gap-2 font-bold text-xs">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>Changes saved successfully to GitHub!</span>
+            <div className="p-4 rounded-xl border bg-emerald-50 border-emerald-200 text-emerald-900 space-y-1.5 animate-in fade-in">
+              <div className="flex items-center gap-2 font-bold text-xs text-emerald-800">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Changes saved successfully!</span>
               </div>
-              <div className="flex items-center justify-between text-xs pt-1">
-                {commitResult.commitUrl && (
-                  <a
-                    href={commitResult.commitUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 font-bold text-emerald-700 hover:text-emerald-800 underline"
-                  >
-                    <span>View Commit on GitHub</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                )}
-                <span className="text-[11px] text-emerald-700 font-medium">
-                  ⚡ Vercel deploying now...
-                </span>
-              </div>
+              <p className="text-[11px] text-emerald-700 leading-relaxed pt-0.5">
+                The portal data has been verified and updated. Live changes will reflect across the website in a few 30–45 seconds.
+              </p>
             </div>
           )}
         </div>
