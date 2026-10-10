@@ -4,6 +4,36 @@
   "_SECTION_NOTE_3": "====================================================================",
   "individualPlacements": [
     {
+      "_comment": "1. INDIVIDUAL: New Corporate Partner - Yadnyesh H Sawant",
+      "id": "placement-individual-1791634504851",
+      "type": "individual",
+      "company": "New Corporate Partner",
+      "companyTagline": "Technology & Innovation",
+      "companyLogoType": "custom",
+      "role": "Software Engineer",
+      "placementType": "Intern + PPO",
+      "package": "7 LPA",
+      "batchYear": "2025-27",
+      "department": "Department of Computer Science and Applications (DoCSA)",
+      "school": "School of Computer Science & Engineering",
+      "location": "Pune / Mumbai",
+      "placedDate": "October 2024",
+      "description": "Heartiest congratulations to our student on securing placement!",
+      "students": [
+        {
+          "id": "student-1791634504851-1",
+          "name": "Yadnyesh H Sawant",
+          "program": "MCA (Master of Computer Applications)",
+          "rollNo": "127250066",
+          "photoUrl": "https://media.licdn.com/dms/image/v2/D4D03AQHMOSV2NtrzpA/profile-displayphoto-scale_100_100/B4DaDP1GYTJYAY-/0/1790193201329?e=1793232000&v=beta&t=hRWHrp17ZAgKB8pyzUL1NfTldQkia2uoSMyS23j0kp4",
+          "role": "Software Engineer",
+          "quote": "Grateful to MIT-WPU DoCSA for outstanding placement support."
+        }
+      ],
+      "congratulationsSubtitle": "On your successful internship & placement!",
+      "customLogoUrl": "https://ctwebsite2025.blob.core.windows.net/media/celebalwebsite2025/assets_webp/common/images/ct-logo.webp"
+    },
+    {
       "_comment": "1. INDIVIDUAL: Quantiphi - Student Name",
       "id": "placement-individual-1791311300295",
       "type": "individual",
