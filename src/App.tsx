@@ -45,9 +45,22 @@ export default function App() {
 
   // Default to Tanvi Ballal's placement or first record
   const [selectedPlacement, setSelectedPlacement] = useState<PlacementRecord>(
-    INITIAL_PLACEMENTS.find((p) => p.students[0]?.name.toLowerCase().includes('tanvi')) ||
+    INITIAL_PLACEMENTS.find((p) => p.students?.[0]?.name?.toLowerCase().includes('tanvi')) ||
       INITIAL_PLACEMENTS[1] ||
-      INITIAL_PLACEMENTS[0]
+      INITIAL_PLACEMENTS[0] ||
+      ({
+        id: 'default',
+        type: 'individual',
+        students: [],
+        company: '',
+        companyLogoType: 'custom',
+        role: '',
+        placementType: 'Full-time Placement',
+        batchYear: '2025-27',
+        department: '',
+        school: '',
+        placedDate: '',
+      } as unknown as PlacementRecord)
   );
   // viewMode: 'grid' shows all students first; 'banner' shows the selected banner; 'slideshow' shows animated slideshow; 'editor' shows unified JSON Form & Data Editor
   const [viewMode, setViewMode] = useState<'grid' | 'banner' | 'slideshow' | 'editor'>('grid');

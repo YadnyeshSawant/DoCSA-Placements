@@ -18,12 +18,12 @@ const rawList: any[] = Array.isArray(rawPlacementsData)
 
 export const INITIAL_PLACEMENTS: PlacementRecord[] = rawList.map((placement) => ({
   ...placement,
-  students: placement.students.map((student: any) => ({
+  students: (placement.students || []).map((student: any) => ({
     ...student,
     photoUrl:
-      student.photoUrl && student.photoUrl.trim() !== ''
+      student.photoUrl && typeof student.photoUrl === 'string' && student.photoUrl.trim() !== ''
         ? student.photoUrl
-        : generateStudentAvatar(student.id || student.name, student.gender || 'male'),
+        : generateStudentAvatar(student.id || student.name || 'student', student.gender || 'male'),
   })),
 }));
 
