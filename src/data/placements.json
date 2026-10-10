@@ -179,6 +179,36 @@
       "congratulationsSubtitle": "On your successful internship!"
     },
     {
+      "_comment": "7. INDIVIDUAL: Proxie Studio - Swapnaj Tolnure",
+      "id": "placement-individual-1791651255367",
+      "type": "individual",
+      "company": "Proxie Studio",
+      "companyTagline": "Technology & Innovation",
+      "companyLogoType": "custom",
+      "role": "Software Engineer Intern",
+      "placementType": "Intern + PPO",
+      "package": "10K Stipend",
+      "batchYear": "2025-27",
+      "department": "Department of Computer Science and Applications (DoCSA)",
+      "school": "School of Computer Science & Engineering",
+      "location": "Pune / Mumbai",
+      "placedDate": "September 2024",
+      "description": "Heartiest congratulations to our student on securing placement!",
+      "students": [
+        {
+          "id": "student-1791651255367-1",
+          "name": "Swapnaj Tolnure",
+          "program": "MCA (Master of Computer Applications)",
+          "rollNo": "MITWPU25MCA101",
+          "photoUrl": "https://media.licdn.com/dms/image/v2/D4D03AQG0E3j-39x0aw/profile-displayphoto-scale_400_400/B4DZ.ZHDU.KsAg-/0/1784980191403?e=1793232000&v=beta&t=G5PYVaCANGM57_DR0foOzrwrmub4WGqdh7qvr78-ng0",
+          "role": "Software Engineer Intern",
+          "quote": "Grateful to MIT-WPU DoCSA for outstanding placement support."
+        }
+      ],
+      "customLogoUrl": "https://framerusercontent.com/images/bPtVNqHsRw68HQ9RTRn18rslWn4.svg?scale-down-to=512&width=2585&height=348",
+      "congratulationsSubtitle": "On your successful internship!"
+    },
+    {
       "_comment": "1. INDIVIDUAL: Bentley Systems - Himanshu Pokhriya",
       "id": "placement-individual-1791104591151",
       "type": "individual",
