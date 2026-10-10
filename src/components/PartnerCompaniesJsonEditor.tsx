@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import rawDefaultPartnersData from '../data/marqueePartners.json';
 import { GitHubSyncModal } from './GitHubSyncModal';
+import { getInitialPartnersSchema, savePartnersSchema } from '../data/partnersStore';
 import {
   Download,
   Upload,
@@ -63,6 +64,7 @@ interface PartnerCompaniesJsonEditorProps {
   onNavigateToPlacementsEditor?: () => void;
   partnersList?: MarqueePartnerItem[];
   setPartnersList?: React.Dispatch<React.SetStateAction<MarqueePartnerItem[]>>;
+  onUpdateSchema?: (schema: MarqueePartnersSchema) => void;
 }
 
 export const PartnerCompaniesJsonEditor: React.FC<PartnerCompaniesJsonEditorProps> = ({
@@ -70,54 +72,63 @@ export const PartnerCompaniesJsonEditor: React.FC<PartnerCompaniesJsonEditorProp
   onNavigateToPlacementsEditor,
   partnersList: controlledPartnersList,
   setPartnersList: setControlledPartnersList,
+  onUpdateSchema,
 }) => {
   // Mode: 'form' (Visual Editor) or 'raw' (JSON Code Editor)
   const [editorTab, setEditorTab] = useState<'form' | 'raw'>('form');
 
+  const initialSchema = getInitialPartnersSchema();
+
   // Stats State
   const [highestPackageVal, setHighestPackageVal] = useState<string>(
-    (rawDefaultPartnersData as any).stats?.highestPackage?.value ||
-      (rawDefaultPartnersData as any)['Highest Package'] ||
+    initialSchema.stats?.highestPackage?.value ||
+      initialSchema['Highest Package'] ||
+      initialSchema.highestPackage ||
       '₹28.5 LPA'
   );
   const [highestPackageSub, setHighestPackageSub] = useState<string>(
-    (rawDefaultPartnersData as any).stats?.highestPackage?.subtext ||
+    initialSchema.stats?.highestPackage?.subtext ||
       'Super Dream Offers (Microsoft, AWS)'
   );
 
   const [averageCtcVal, setAverageCtcVal] = useState<string>(
-    (rawDefaultPartnersData as any).stats?.averageCTC?.value ||
-      (rawDefaultPartnersData as any)['Average CTC'] ||
+    initialSchema.stats?.averageCTC?.value ||
+      initialSchema['Average CTC'] ||
+      initialSchema.averageCTC ||
       '₹8.4 LPA'
   );
   const [averageCtcSub, setAverageCtcSub] = useState<string>(
-    (rawDefaultPartnersData as any).stats?.averageCTC?.subtext ||
+    initialSchema.stats?.averageCTC?.subtext ||
       'Across MCA, BCA & M.Sc Programs'
   );
 
   const [placementsCountVal, setPlacementsCountVal] = useState<string>(
-    (rawDefaultPartnersData as any).stats?.placementsAndInternships?.value ||
-      (rawDefaultPartnersData as any)['Placements & Internships'] ||
+    initialSchema.stats?.placementsAndInternships?.value ||
+      initialSchema['Placements & Internships'] ||
+      initialSchema.placementsAndInternships ||
       '340+'
   );
   const [placementsCountSub, setPlacementsCountSub] = useState<string>(
-    (rawDefaultPartnersData as any).stats?.placementsAndInternships?.subtext ||
+    initialSchema.stats?.placementsAndInternships?.subtext ||
       'DoCSA Academic Cohort'
   );
 
   const [recruitersCountVal, setRecruitersCountVal] = useState<string>(
-    (rawDefaultPartnersData as any).stats?.corporateRecruiters?.value ||
-      (rawDefaultPartnersData as any)['Corporate Recruiters'] ||
+    initialSchema.stats?.corporateRecruiters?.value ||
+      initialSchema['Corporate Recruiters'] ||
+      initialSchema.corporateRecruiters ||
       '85+'
   );
   const [recruitersCountSub, setRecruitersCountSub] = useState<string>(
-    (rawDefaultPartnersData as any).stats?.corporateRecruiters?.subtext ||
+    initialSchema.stats?.corporateRecruiters?.subtext ||
       'Fortune 500 & Global Tech Giants'
   );
 
   // Internal Partners List State (used if not provided as prop)
   const [internalPartnersList, setInternalPartnersList] = useState<MarqueePartnerItem[]>(() => {
-    const raw = Array.isArray(rawDefaultPartnersData)
+    const raw = Array.isArray(initialSchema.partners) && initialSchema.partners.length > 0
+      ? initialSchema.partners
+      : Array.isArray(rawDefaultPartnersData)
       ? (rawDefaultPartnersData as MarqueePartnerItem[])
       : ((rawDefaultPartnersData as any).partners || []);
     return raw.map((p: any, idx: number) => ({
@@ -190,12 +201,17 @@ export const PartnerCompaniesJsonEditor: React.FC<PartnerCompaniesJsonEditorProp
     };
   };
 
-  // Keep Raw JSON in sync with visual editor
+  // Keep Raw JSON and live application pages in sync with visual editor
   useEffect(() => {
+    const obj = buildCurrentSchemaObject();
     if (editorTab === 'form') {
-      const obj = buildCurrentSchemaObject();
       setRawJsonText(JSON.stringify(obj, null, 2));
       setJsonError(null);
+    }
+    // Instantly reflect changes across the respective pages
+    savePartnersSchema(obj);
+    if (onUpdateSchema) {
+      onUpdateSchema(obj);
     }
   }, [
     highestPackageVal,

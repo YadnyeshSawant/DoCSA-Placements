@@ -3,8 +3,9 @@ import { PlacementRecord, Student } from '../types/placement';
 import { CompanyLogo, CompanyLogoType } from './CompanyLogo';
 import { IndividualPlacementBanner } from './banners/IndividualPlacementBanner';
 import { GroupPlacementBanner } from './banners/GroupPlacementBanner';
-import { PartnerCompaniesJsonEditor, MarqueePartnerItem } from './PartnerCompaniesJsonEditor';
+import { PartnerCompaniesJsonEditor, MarqueePartnerItem, MarqueePartnersSchema } from './PartnerCompaniesJsonEditor';
 import { GitHubSyncModal } from './GitHubSyncModal';
+import { getInitialPartnersSchema } from '../data/partnersStore';
 import rawDefaultData from '../data/placements.json';
 import rawDefaultPartnersData from '../data/marqueePartners.json';
 import {
@@ -38,6 +39,9 @@ interface PlacementJsonEditorProps {
   placements: PlacementRecord[];
   onBackToApp: () => void;
   onNavigateToPartnersEditor?: () => void;
+  partnersSchema?: MarqueePartnersSchema;
+  onUpdatePartnersSchema?: (schema: MarqueePartnersSchema) => void;
+  onUpdatePlacements?: (placements: PlacementRecord[]) => void;
 }
 
 const COMPANY_LOGO_OPTIONS: { label: string; value: CompanyLogoType }[] = [
@@ -103,15 +107,20 @@ export const PROGRAM_OPTIONS = [
 export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
   placements,
   onBackToApp,
+  partnersSchema,
+  onUpdatePartnersSchema,
+  onUpdatePlacements,
 }) => {
   // Main Module: 'placements' (placements.json) or 'partners' (marqueePartners.json)
   const [activeDataModule, setActiveDataModule] = useState<'placements' | 'partners'>('placements');
 
   // Shared Partners List State across Placement and Partner JSON editors
   const [partnersList, setPartnersList] = useState<MarqueePartnerItem[]>(() => {
-    const raw = Array.isArray(rawDefaultPartnersData)
-      ? (rawDefaultPartnersData as MarqueePartnerItem[])
-      : ((rawDefaultPartnersData as any).partners || []);
+    const raw = partnersSchema?.partners || (
+      Array.isArray(rawDefaultPartnersData)
+        ? (rawDefaultPartnersData as MarqueePartnerItem[])
+        : ((rawDefaultPartnersData as any).partners || [])
+    );
     return raw.map((p: any, idx: number) => ({
       id: p.id || `partner-item-${idx}`,
       companyName: p.companyName || '',
@@ -239,12 +248,18 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
     };
   };
 
-  // Sync rawJsonText when switching tabs or when workingPlacements change
+  // Sync rawJsonText and update application state when workingPlacements change
   useEffect(() => {
     const structured = formatStructuredJson(workingPlacements);
     setRawJsonText(JSON.stringify(structured, null, 2));
     setJsonError(null);
-  }, [workingPlacements]);
+    if (onUpdatePlacements) {
+      onUpdatePlacements(workingPlacements);
+    }
+    try {
+      localStorage.setItem('mitwpu_placements_custom_data', JSON.stringify(workingPlacements));
+    } catch (e) {}
+  }, [workingPlacements, onUpdatePlacements]);
 
   // Active placement being edited
   const selectedPlacement = useMemo(() => {
@@ -729,6 +744,7 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
           onNavigateToPlacementsEditor={() => setActiveDataModule('placements')}
           partnersList={partnersList}
           setPartnersList={setPartnersList}
+          onUpdateSchema={onUpdatePartnersSchema}
         />
       </div>
     );

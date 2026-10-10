@@ -15,6 +15,8 @@ import { LoadingScreen } from './components/LoadingScreen';
 import { PlacementJsonEditor } from './components/PlacementJsonEditor';
 import { PlacementSlideshow } from './components/PlacementSlideshow';
 import { downloadBannerAsImage } from './utils/downloadBanner';
+import { getInitialPartnersSchema } from './data/partnersStore';
+import { MarqueePartnersSchema } from './components/PartnerCompaniesJsonEditor';
 import logoMitImg from './assets/logoMIT.jpg';
 
 import {
@@ -34,14 +36,21 @@ import {
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [placements] = useState<PlacementRecord[]>(INITIAL_PLACEMENTS);
 
-  // Clear any previous local storage override so the site strictly uses the real placements.json file
-  useEffect(() => {
+  // Synchronized schema for key recruitment statistics & hiring partners
+  const [partnersSchema, setPartnersSchema] = useState<MarqueePartnersSchema>(getInitialPartnersSchema);
+
+  // Synchronized placements directory
+  const [placements, setPlacements] = useState<PlacementRecord[]>(() => {
     try {
-      localStorage.removeItem('mitwpu_placements_custom_data');
+      const saved = localStorage.getItem('mitwpu_placements_custom_data');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
     } catch (e) {}
-  }, []);
+    return INITIAL_PLACEMENTS;
+  });
 
   // Default to Tanvi Ballal's placement or first record
   const [selectedPlacement, setSelectedPlacement] = useState<PlacementRecord>(
@@ -342,6 +351,9 @@ export default function App() {
         <PlacementJsonEditor
           placements={placements}
           onBackToApp={() => handleBackToGrid()}
+          partnersSchema={partnersSchema}
+          onUpdatePartnersSchema={setPartnersSchema}
+          onUpdatePlacements={setPlacements}
         />
       ) : viewMode === 'slideshow' ? (
         /* VIEW 2: ANIMATED SLIDE SHOW MODE */
@@ -467,7 +479,7 @@ export default function App() {
 
           {/* Key Stats */}
           <div id="stats">
-            <DepartmentStats />
+            <DepartmentStats schema={partnersSchema} />
           </div>
 
           {/* Directory Content */}
