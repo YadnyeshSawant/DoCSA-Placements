@@ -2,6 +2,7 @@ import React from 'react';
 import { PlacementRecord } from '../types/placement';
 import { CompanyLogo } from './CompanyLogo';
 import { Users, User, ArrowUpRight, Award, MapPin } from 'lucide-react';
+import { normalizeImageUrl } from '../utils/googleDriveUrl';
 
 interface PlacementCardProps {
   placement: PlacementRecord;
@@ -78,7 +79,7 @@ export const PlacementCard: React.FC<PlacementCardProps> = ({
                     <div key={student.id} className="flex flex-col items-center text-center">
                       <div className="w-12 h-16 rounded-t-xl rounded-b-xs bg-gradient-to-b from-[#8B1E3F] to-[#5a0c22] p-0.5 shadow-xs overflow-hidden">
                         <img
-                          src={student.photoUrl}
+                          src={normalizeImageUrl(student.photoUrl)}
                           alt={student.name}
                           className="w-full h-full object-cover object-top rounded-t-lg"
                           referrerPolicy="no-referrer"
@@ -97,7 +98,7 @@ export const PlacementCard: React.FC<PlacementCardProps> = ({
                     <div key={student.id} className="flex flex-col items-center text-center w-12">
                       <div className="w-12 h-16 rounded-t-xl rounded-b-xs bg-gradient-to-b from-[#8B1E3F] to-[#5a0c22] p-0.5 shadow-xs overflow-hidden">
                         <img
-                          src={student.photoUrl}
+                          src={normalizeImageUrl(student.photoUrl)}
                           alt={student.name}
                           className="w-full h-full object-cover object-top rounded-t-lg"
                           referrerPolicy="no-referrer"
@@ -125,7 +126,7 @@ export const PlacementCard: React.FC<PlacementCardProps> = ({
                   <div key={student.id} className="flex flex-col items-center text-center">
                     <div className="w-12 h-16 rounded-t-xl rounded-b-xs bg-gradient-to-b from-[#8B1E3F] to-[#5a0c22] p-0.5 shadow-xs overflow-hidden">
                       <img
-                        src={student.photoUrl}
+                        src={normalizeImageUrl(student.photoUrl)}
                         alt={student.name}
                         className="w-full h-full object-cover object-top rounded-t-lg"
                         referrerPolicy="no-referrer"
@@ -149,7 +150,7 @@ export const PlacementCard: React.FC<PlacementCardProps> = ({
               <div className="absolute inset-0 rounded-full border-2 border-[#E5A93C] translate-x-1" />
               <div className="absolute inset-0 rounded-full bg-gradient-to-b from-[#8B1E3F] to-[#5B0E23] overflow-hidden p-0.5">
                 <img
-                  src={placement.students[0]?.photoUrl}
+                  src={normalizeImageUrl(placement.students[0]?.photoUrl)}
                   alt={placement.students[0]?.name}
                   className="w-full h-full object-cover object-top rounded-full"
                   referrerPolicy="no-referrer"

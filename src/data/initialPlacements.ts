@@ -1,6 +1,7 @@
 import rawPlacementsData from './placements.json';
 import { PlacementRecord } from '../types/placement';
 import { generateStudentAvatar } from '../utils/studentPortraits';
+import { normalizeImageUrl } from '../utils/googleDriveUrl';
 
 /**
  * All placement records are sourced directly from `./placements.json`.
@@ -18,11 +19,12 @@ const rawList: any[] = Array.isArray(rawPlacementsData)
 
 export const INITIAL_PLACEMENTS: PlacementRecord[] = rawList.map((placement) => ({
   ...placement,
+  customLogoUrl: normalizeImageUrl(placement.customLogoUrl),
   students: (placement.students || []).map((student: any) => ({
     ...student,
     photoUrl:
       student.photoUrl && typeof student.photoUrl === 'string' && student.photoUrl.trim() !== ''
-        ? student.photoUrl
+        ? normalizeImageUrl(student.photoUrl)
         : generateStudentAvatar(student.id || student.name || 'student', student.gender || 'male'),
   })),
 }));

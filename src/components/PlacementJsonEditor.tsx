@@ -6,6 +6,7 @@ import { GroupPlacementBanner } from './banners/GroupPlacementBanner';
 import { PartnerCompaniesJsonEditor, MarqueePartnerItem, MarqueePartnersSchema } from './PartnerCompaniesJsonEditor';
 import { GitHubSyncModal } from './GitHubSyncModal';
 import { getInitialPartnersSchema } from '../data/partnersStore';
+import { normalizeImageUrl } from '../utils/googleDriveUrl';
 import rawDefaultData from '../data/placements.json';
 import rawDefaultPartnersData from '../data/marqueePartners.json';
 import {
@@ -327,16 +328,18 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
   // 1. UPDATE FIELD ON ACTIVE PLACEMENT
   const handleUpdatePlacement = (field: keyof PlacementRecord, value: any) => {
     if (!selectedPlacement) return;
+    const finalValue = field === 'customLogoUrl' ? normalizeImageUrl(value) : value;
     setWorkingPlacements((prev) =>
-      prev.map((p) => (p.id === selectedPlacement.id ? { ...p, [field]: value } : p))
+      prev.map((p) => (p.id === selectedPlacement.id ? { ...p, [field]: finalValue } : p))
     );
   };
 
   // 2. UPDATE STUDENT FIELD
   const handleUpdateStudent = (index: number, field: keyof Student, value: any) => {
     if (!selectedPlacement) return;
+    const finalValue = field === 'photoUrl' ? normalizeImageUrl(value) : value;
     const updatedStudents = [...selectedPlacement.students];
-    updatedStudents[index] = { ...updatedStudents[index], [field]: value };
+    updatedStudents[index] = { ...updatedStudents[index], [field]: finalValue };
     handleUpdatePlacement('students', updatedStudents);
   };
 
@@ -1305,20 +1308,27 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
                           </select>
 
                           {/* Custom Logo URL text input */}
-                          <input
-                            type="text"
-                            value={selectedPlacement.customLogoUrl || ''}
-                            onChange={(e) => {
-                              handleUpdatePlacement('customLogoUrl', e.target.value);
-                            }}
-                            onBlur={() => {
-                              if (selectedPlacement.company && selectedPlacement.company.trim().length >= 2) {
-                                syncCompanyToPartners(selectedPlacement.company, selectedPlacement.customLogoUrl);
-                              }
-                            }}
-                            className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#8B1E3F] font-mono text-[11px]"
-                            placeholder="Logo Image URL (https://... or /logo.webp)"
-                          />
+                          <div className="relative">
+                            <input
+                              type="text"
+                              value={selectedPlacement.customLogoUrl || ''}
+                              onChange={(e) => {
+                                handleUpdatePlacement('customLogoUrl', e.target.value);
+                              }}
+                              onBlur={() => {
+                                if (selectedPlacement.company && selectedPlacement.company.trim().length >= 2) {
+                                  syncCompanyToPartners(selectedPlacement.company, selectedPlacement.customLogoUrl);
+                                }
+                              }}
+                              className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#8B1E3F] font-mono text-[11px]"
+                              placeholder="Logo Image URL or Google Drive share link..."
+                            />
+                            {selectedPlacement.customLogoUrl && selectedPlacement.customLogoUrl.includes('googleusercontent.com/d/') && (
+                              <span className="absolute right-2 top-2 text-[9px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+                                ✓ Drive Converted
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </div>
 
@@ -1633,15 +1643,22 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
 
                               {/* Photo URL */}
                               <div>
-                                <label className="block font-semibold text-slate-600 mb-1">
-                                  Photo URL / Path (or leave empty for avatar)
-                                </label>
+                                <div className="flex items-center justify-between mb-1">
+                                  <label className="block font-semibold text-slate-600">
+                                    Photo URL / Google Drive Link
+                                  </label>
+                                  {student.photoUrl && student.photoUrl.includes('googleusercontent.com/d/') && (
+                                    <span className="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+                                      ✓ Google Drive Link Converted
+                                    </span>
+                                  )}
+                                </div>
                                 <input
                                   type="text"
                                   value={student.photoUrl || ''}
                                   onChange={(e) => handleUpdateStudent(idx, 'photoUrl', e.target.value)}
                                   className="w-full px-3 py-1.5 bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-[#8B1E3F]"
-                                  placeholder="https://... or /photo.png"
+                                  placeholder="Paste image URL or Google Drive share link..."
                                 />
                               </div>
 

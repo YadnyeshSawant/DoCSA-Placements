@@ -3,6 +3,7 @@ import { PlacementRecord } from '../../types/placement';
 import { MitWpuLogo } from '../MitWpuLogo';
 import { CompanyLogo } from '../CompanyLogo';
 import { GeometricPattern } from '../GeometricPattern';
+import { normalizeImageUrl } from '../../utils/googleDriveUrl';
 
 interface IndividualPlacementBannerProps {
   placement: PlacementRecord;
@@ -124,7 +125,7 @@ export const IndividualPlacementBanner: React.FC<IndividualPlacementBannerProps>
           <div className="relative z-10 w-full max-w-[240px] sm:max-w-[270px] md:max-w-[290px] h-[300px] sm:h-[330px] md:h-[360px] flex items-end justify-center">
             {student?.photoUrl ? (
               <img
-                src={student.photoUrl}
+                src={normalizeImageUrl(student.photoUrl)}
                 alt={student.name}
                 className="w-full h-full object-cover object-top drop-shadow-2xl rounded-t-3xl"
                 referrerPolicy="no-referrer"

@@ -1,5 +1,6 @@
 import React from 'react';
 import ctLogoWebp from '../assets/ct-logo.webp';
+import { normalizeImageUrl } from '../utils/googleDriveUrl';
 
 export type CompanyLogoType =
   | 'ey'
@@ -32,7 +33,7 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
   if (type === 'custom' && customUrl) {
     return (
       <img
-        src={customUrl}
+        src={normalizeImageUrl(customUrl)}
         alt={companyName || 'Company Logo'}
         className={`object-contain h-12 sm:h-14 md:h-16 max-w-[260px] ${className}`}
         referrerPolicy="no-referrer"

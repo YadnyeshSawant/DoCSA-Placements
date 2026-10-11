@@ -1,5 +1,6 @@
 import html2canvas from 'html2canvas-pro';
 import { PlacementRecord } from '../types/placement';
+import { normalizeImageUrl } from './googleDriveUrl';
 
 /**
  * Convert any image URL (local or cross-origin) into a base64 Data URL
@@ -7,6 +8,7 @@ import { PlacementRecord } from '../types/placement';
  */
 async function toBase64DataUrl(src: string): Promise<string> {
   if (!src) return '';
+  src = normalizeImageUrl(src);
   if (src.startsWith('data:')) return src;
 
   // 1. Try direct fetch

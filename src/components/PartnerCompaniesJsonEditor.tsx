@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import rawDefaultPartnersData from '../data/marqueePartners.json';
 import { GitHubSyncModal } from './GitHubSyncModal';
 import { getInitialPartnersSchema, savePartnersSchema } from '../data/partnersStore';
+import { normalizeImageUrl } from '../utils/googleDriveUrl';
 import {
   Download,
   Upload,
@@ -280,13 +281,14 @@ export const PartnerCompaniesJsonEditor: React.FC<PartnerCompaniesJsonEditorProp
 
   // Partner item update
   const handleUpdatePartner = (index: number, field: keyof MarqueePartnerItem, value: string) => {
+    const finalVal = field === 'logoLink' || field === 'logo' ? normalizeImageUrl(value) : value;
     setPartnersList((prev) => {
       const updated = [...prev];
       updated[index] = {
         ...updated[index],
-        [field]: value,
-        ...(field === 'logoLink' ? { logo: value } : {}),
-        ...(field === 'companyName' ? { name: value } : {}),
+        [field]: finalVal,
+        ...(field === 'logoLink' ? { logo: finalVal } : {}),
+        ...(field === 'companyName' ? { name: finalVal } : {}),
       };
       return updated;
     });
@@ -870,9 +872,16 @@ export const PartnerCompaniesJsonEditor: React.FC<PartnerCompaniesJsonEditorProp
 
                       {/* Logo URL */}
                       <div>
-                        <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1">
-                          Logo Image URL / SVG Link *
-                        </label>
+                        <div className="flex items-center justify-between mb-1">
+                          <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                            Logo URL / Google Drive Link *
+                          </label>
+                          {partner.logoLink && partner.logoLink.includes('googleusercontent.com/d/') && (
+                            <span className="text-[9px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">
+                              ✓ Drive Converted
+                            </span>
+                          )}
+                        </div>
                         <div className="flex items-center gap-1.5">
                           <input
                             type="text"
@@ -881,7 +890,7 @@ export const PartnerCompaniesJsonEditor: React.FC<PartnerCompaniesJsonEditorProp
                               handleUpdatePartner(originalIndex, 'logoLink', e.target.value)
                             }
                             className="w-full px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-700 font-mono text-[11px] focus:outline-none focus:border-[#8B1E3F]"
-                            placeholder="https://... or /logo.png"
+                            placeholder="Image URL or Google Drive link..."
                           />
                           {partner.logoLink && (
                             <a

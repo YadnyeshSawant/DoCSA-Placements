@@ -1,5 +1,6 @@
 import rawDefaultPartnersData from './marqueePartners.json';
 import { MarqueePartnerItem, MarqueePartnersSchema } from '../components/PartnerCompaniesJsonEditor';
+import { normalizeImageUrl } from '../utils/googleDriveUrl';
 
 export const PARTNERS_STORAGE_KEY = 'mitwpu_marquee_partners_custom';
 export const PLACEMENTS_STORAGE_KEY = 'mitwpu_placements_custom_data';
@@ -50,7 +51,13 @@ export function getInitialPartnersSchema(): MarqueePartnersSchema {
         subtext: 'Fortune 500 & Global Tech Giants',
       },
     },
-    partners: Array.isArray(raw.partners) ? raw.partners : Array.isArray(raw) ? raw : [],
+    partners: (Array.isArray(raw.partners) ? raw.partners : Array.isArray(raw) ? raw : []).map(
+      (p: any) => ({
+        ...p,
+        logoLink: normalizeImageUrl(p.logoLink || p.logo),
+        logo: normalizeImageUrl(p.logo || p.logoLink),
+      })
+    ),
   };
 }
 
