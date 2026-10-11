@@ -1,0 +1,281 @@
+{
+  "ciap": [
+    {
+      "id": "ciap-1",
+      "name": "Manas Mohanty",
+      "post": "Director",
+      "email": "manas.mohanty@mitwpu.edu.in",
+      "image": "/images/ciap/manas.png"
+    },
+    {
+      "id": "ciap-2",
+      "name": "Sanjeeb Biswal",
+      "post": "Division Head",
+      "email": "sanjeeb.biswal@mitwpu.edu.in",
+      "image": "/images/ciap/sanjeeb.jpeg"
+    }
+  ],
+  "department": [
+    {
+      "id": "dept-1",
+      "name": "Dr. Anuradha Kanade",
+      "post": "Program Director, DoCSA",
+      "email": "anuradha.kanade@mitwpu.edu.in",
+      "image": "/images/department/anuradha.jpg"
+    },
+    {
+      "id": "dept-2",
+      "name": "Prof. Raja Bavani",
+      "post": "Placement Faculty",
+      "email": "raja.bavani@mitwpu.edu.in",
+      "image": "/images/department/raja.webp"
+    },
+    {
+      "id": "dept-3",
+      "name": "Prof. Rahul Ambapkar",
+      "post": "Placement Faculty",
+      "email": "rahul.ambapkar@mitwpu.edu.in",
+      "image": "/images/department/rahul.jpg"
+    },
+    {
+      "id": "dept-4",
+      "name": "Dr. Geetika Parmar",
+      "post": "Placement Faculty",
+      "email": "geetika.parmar@mitwpu.edu.in",
+      "image": "/images/department/geetika.jpeg"
+    },
+    {
+      "id": "dept-5",
+      "name": "Deepali Sonawane",
+      "post": "Placement Faculty",
+      "email": "deepali.sonawane@mitwpu.edu.in",
+      "image": "/images/department/deepali.webp"
+    }
+  ],
+  "sprs": [
+    {
+      "id": "spr-1",
+      "name": "Yadnyesh Sawant",
+      "post": "SPR, MCA",
+      "email": "1272250066@mitwpu.edu.in",
+      "image": "/images/spr/yad.png"
+    },
+    {
+      "id": "spr-2",
+      "name": "Tanveer Singh",
+      "post": "SPR, MCA",
+      "email": "1272250158@mitwpu.edu.in",
+      "image": "/images/spr/tanveer.png"
+    },
+    {
+      "id": "spr-3",
+      "name": "Vipul Prasad",
+      "post": "SPR, MCA",
+      "email": "1272250051@mitwpu.edu.in",
+      "image": "/images/spr/vipul.jpeg"
+    },
+    {
+      "id": "spr-4",
+      "name": "Taha Badami",
+      "post": "SPR, MCA",
+      "email": "1272250243@mitwpu.edu.in",
+      "image": "/images/spr/taha.jpeg"
+    },
+    {
+      "id": "spr-5",
+      "name": "Gaourav Patil",
+      "post": "SPR, MCA",
+      "email": "1272250774@mitwpu.edu.in",
+      "image": "/images/spr/gaourav.jpg"
+    },
+    {
+      "id": "spr-6",
+      "name": "Sarthak Umbrajkar",
+      "post": "SPR, MSC CS",
+      "email": "1272250025@mitwpu.edu.in",
+      "image": "/images/spr/sarthak.png"
+    },
+    {
+      "id": "spr-7",
+      "name": "Tejas Thigale",
+      "post": "SPR, MCA",
+      "email": "1272250607@mitwpu.edu.in",
+      "image": "/images/spr/tejas.jpg"
+    },
+    {
+      "id": "spr-8",
+      "name": "Swapnaj Tolnure",
+      "post": "SPR, MCA",
+      "email": "1272250516@mitwpu.edu.in",
+      "image": "/images/spr/swapnaj.png"
+    },
+    {
+      "id": "spr-9",
+      "name": "Krisha Balar",
+      "post": "SPR, MSC CS",
+      "email": "1272250209@mitwpu.edu.in",
+      "image": "/images/spr/krisha.jpg"
+    },
+    {
+      "id": "spr-10",
+      "name": "Jeel Bhanderi",
+      "post": "SPR, MCA",
+      "email": "1272250519@mitwpu.edu.in",
+      "image": "/images/spr/jeel.jpeg"
+    },
+    {
+      "id": "spr-11",
+      "name": "Pradnyesh Fulpagare",
+      "post": "SPR, MCA",
+      "email": "1272250462@mitwpu.edu.in",
+      "image": "/images/spr/pradnyesh.png"
+    },
+    {
+      "id": "spr-12",
+      "name": "Khevna Unakar",
+      "post": "SPR, MCA",
+      "email": "1272251043@mitwpu.edu.in",
+      "image": "/images/spr/khevna.jpg"
+    },
+    {
+      "id": "spr-13",
+      "name": "Vatsal Bhataria",
+      "post": "SPR, MSC CS",
+      "email": "1272250515@mitwpu.edu.in",
+      "image": "/images/spr/vatsal.jpeg"
+    },
+    {
+      "id": "spr-14",
+      "name": "Devanshu Pardeshi",
+      "post": "SPR, MSC DSBDA",
+      "email": "1272250601@mitwpu.edu.in",
+      "image": "/images/spr/devanshu.jpg"
+    },
+    {
+      "id": "spr-15",
+      "name": "Janvi Mangukiya",
+      "post": "SPR, MSC DSBDA",
+      "email": "1272250203@mitwpu.edu.in",
+      "image": "/images/spr/janvi.png"
+    },
+    {
+      "id": "spr-16",
+      "name": "Tanay Pusalkar",
+      "post": "SPR, MSC CS",
+      "email": "1272250619@mitwpu.edu.in",
+      "image": "/images/spr/tanay.jpg"
+    },
+    {
+      "id": "spr-17",
+      "name": "Lehar Gupta",
+      "post": "SPR, MCA",
+      "email": "1272250493@mitwpu.edu.in",
+      "image": "/images/spr/lehar.png"
+    },
+    {
+      "id": "spr-18",
+      "name": "Dhruvil Mehta",
+      "post": "SPR, MSC CS",
+      "email": "1272251037@mitwpu.edu.in",
+      "image": "/images/spr/dhruvil.png"
+    },
+    {
+      "id": "spr-19",
+      "name": "Nikhil Singh",
+      "post": "SPR, MCA",
+      "email": "1272251038@mitwpu.edu.in",
+      "image": "/images/spr/nikhli.png"
+    },
+    {
+      "id": "spr-20",
+      "name": "Shruti Kushwaha",
+      "post": "SPR, MCA",
+      "email": "1272251374@mitwpu.edu.in",
+      "image": "/images/spr/shruti.jpg"
+    },
+    {
+      "id": "spr-21",
+      "name": "Pallavi Satapathy",
+      "post": "SPR, MSC DSBDA",
+      "email": "1272250472@mitwpu.edu.in",
+      "image": "/images/spr/pallavi.jpg"
+    },
+    {
+      "id": "spr-22",
+      "name": "Shreshta Sengupta",
+      "post": "SPR, MCA",
+      "email": "1272251228@mitwpu.edu.in",
+      "image": "/images/spr/shreshta.png"
+    },
+    {
+      "id": "spr-23",
+      "name": "Tanuja Prasad",
+      "post": "SPR, MCA",
+      "email": "1272250294@mitwpu.edu.in",
+      "image": "/images/spr/tanuja.png"
+    },
+    {
+      "id": "spr-24",
+      "name": "Sameer Shedage",
+      "post": "SPR, MCA",
+      "email": "1272250299@mitwpu.edu.in",
+      "image": "/images/spr/sameer.jpg"
+    },
+    {
+      "id": "spr-25",
+      "name": "Tejaswini Waghmare",
+      "post": "SPR, MCA",
+      "email": "1272250272@mitwpu.edu.in",
+      "image": "/images/spr/tejaswini.jpg"
+    },
+    {
+      "id": "spr-26",
+      "name": "Shravani Dhore",
+      "post": "SPR, MSC DSBDA",
+      "email": "1272250239@mitwpu.edu.in",
+      "image": "/images/spr/shravani.svg"
+    },
+    {
+      "id": "spr-27",
+      "name": "Vanshika Radadiya",
+      "post": "SPR, MCA",
+      "email": "1272250271@mitwpu.edu.in",
+      "image": "/images/spr/vanshika.jpg"
+    },
+    {
+      "id": "spr-28",
+      "name": "Krish Shah",
+      "post": "SPR, MSC DSBDA",
+      "email": "1272250378@mitwpu.edu.in",
+      "image": "/images/spr/krish.svg"
+    },
+    {
+      "id": "spr-29",
+      "name": "Palak Rana",
+      "post": "SPR, MCA",
+      "email": "1272251008@mitwpu.edu.in",
+      "image": "/images/spr/palak.svg"
+    },
+    {
+      "id": "spr-30",
+      "name": "Siddhi Kulkarni",
+      "post": "SPR, MSC DSBDA",
+      "email": "1272250183@mitwpu.edu.in",
+      "image": "/images/spr/siddhi.svg"
+    },
+    {
+      "id": "spr-31",
+      "name": "Atharva Funde",
+      "post": "SPR, MSC BT",
+      "email": "1272250095@mitwpu.edu.in",
+      "image": "/images/spr/atharva.svg"
+    },
+    {
+      "id": "spr-32",
+      "name": "Shivendra Thakur",
+      "post": "SPR, MCA",
+      "email": "1272250845@mitwpu.edu.in",
+      "image": "/images/spr/shivendra.svg"
+    }
+  ]
+}

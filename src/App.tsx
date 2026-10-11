@@ -619,26 +619,31 @@ export default function App() {
               </p>
             </div>
           </div>
-          <div className="flex flex-wrap items-center gap-3 text-slate-400">
-            <button
-              type="button"
-              onClick={() => handleOpenEditor()}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 transition-all cursor-pointer shadow-2xs"
-            >
-              <FileJson className="w-3.5 h-3.5 text-[#E5A93C]" />
-              <span>Edit Data / JSON</span>
-            </button>
-            <span>·</span>
-            <span>UGC Recognized</span>
-            <span>·</span>
-            <a
-              href="https://mitwpu.edu.in"
-              target="_blank"
-              rel="noreferrer"
-              className="text-slate-300 hover:text-[#1E5C9E] transition-colors"
-            >
-              mitwpu.edu.in
-            </a>
+          <div className="flex flex-col items-center md:items-end gap-2 text-slate-400">
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => handleOpenEditor()}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 transition-all cursor-pointer shadow-2xs"
+              >
+                <FileJson className="w-3.5 h-3.5 text-[#E5A93C]" />
+                <span>Edit Data / JSON</span>
+              </button>
+              <span>·</span>
+              <span>UGC Recognized</span>
+              <span>·</span>
+              <a
+                href="https://mitwpu.edu.in"
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-300 hover:text-[#1E5C9E] transition-colors"
+              >
+                mitwpu.edu.in
+              </a>
+            </div>
+            <p className="text-[11px] text-[#E5A93C] font-medium text-center md:text-right">
+              Data managed by Student Placement Representatives (SPRs) of DoCSA
+            </p>
           </div>
         </div>
       </footer>
