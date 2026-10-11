@@ -6,6 +6,7 @@ import { GroupPlacementBanner } from './banners/GroupPlacementBanner';
 import { IndividualPlacementBanner } from './banners/IndividualPlacementBanner';
 import { X, Plus, Trash2, Image as ImageIcon, Sparkles, Eye, Download } from 'lucide-react';
 import html2canvas from 'html2canvas';
+import { normalizeImageUrl } from '../utils/googleDriveUrl';
 
 interface CreatePlacementModalProps {
   isOpen: boolean;
@@ -351,11 +352,18 @@ export const CreatePlacementModal: React.FC<CreatePlacementModalProps> = ({
                       {/* Photo preview + upload */}
                       <div className="flex items-center gap-3 shrink-0">
                         <div className="w-14 h-16 rounded-t-lg rounded-b-xs bg-[#8B1E3F] p-0.5 overflow-hidden shadow-xs">
-                          <img
-                            src={student.photoUrl}
-                            alt={student.name}
-                            className="w-full h-full object-cover object-top"
-                          />
+                          {student.photoUrl && normalizeImageUrl(student.photoUrl) ? (
+                            <img
+                              src={normalizeImageUrl(student.photoUrl) || undefined}
+                              alt={student.name || 'Student photo'}
+                              className="w-full h-full object-cover object-top rounded-t-md"
+                              referrerPolicy="no-referrer"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-[#8B1E3F] flex items-center justify-center text-white/70 text-[10px] font-bold text-center px-1">
+                              No Photo
+                            </div>
+                          )}
                         </div>
                         <div>
                           <label className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#8B1E3F] bg-white border border-slate-200 px-2.5 py-1 rounded cursor-pointer hover:bg-slate-100">

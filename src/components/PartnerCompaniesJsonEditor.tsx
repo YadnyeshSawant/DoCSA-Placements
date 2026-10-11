@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import rawDefaultPartnersData from '../data/marqueePartners.json';
 import { GitHubSyncModal } from './GitHubSyncModal';
-import { getInitialPartnersSchema, savePartnersSchema } from '../data/partnersStore';
+import { getInitialPartnersSchema, savePartnersSchema, getStoredPlacements } from '../data/partnersStore';
 import { normalizeImageUrl } from '../utils/googleDriveUrl';
 import {
   Download,
@@ -835,9 +835,9 @@ export const PartnerCompaniesJsonEditor: React.FC<PartnerCompaniesJsonEditorProp
 
                       {/* Logo Preview Pill */}
                       <div className="w-24 h-11 px-2 rounded-lg bg-white border border-slate-200 shadow-2xs flex items-center justify-center overflow-hidden shrink-0">
-                        {partner.logoLink ? (
+                        {normalizeImageUrl(partner.logoLink) ? (
                           <img
-                            src={partner.logoLink}
+                            src={normalizeImageUrl(partner.logoLink) || undefined}
                             alt={partner.companyName}
                             className="max-h-7 max-w-[80px] object-contain"
                             referrerPolicy="no-referrer"
@@ -1017,9 +1017,9 @@ export const PartnerCompaniesJsonEditor: React.FC<PartnerCompaniesJsonEditorProp
                       className="flex items-center gap-4 shrink-0"
                     >
                       <div className="flex items-center justify-center px-4 py-1.5 h-10 min-w-[80px] rounded-lg bg-white border border-slate-200 shadow-2xs">
-                        {p.logoLink ? (
+                        {normalizeImageUrl(p.logoLink) ? (
                           <img
-                            src={p.logoLink}
+                            src={normalizeImageUrl(p.logoLink) || undefined}
                             alt={p.companyName}
                             className="h-5 max-w-[85px] object-contain"
                             referrerPolicy="no-referrer"
@@ -1044,6 +1044,8 @@ export const PartnerCompaniesJsonEditor: React.FC<PartnerCompaniesJsonEditorProp
       <GitHubSyncModal
         isOpen={isGitHubModalOpen}
         onClose={() => setIsGitHubModalOpen(false)}
+        placements={getStoredPlacements()}
+        partnersSchema={buildCurrentSchemaObject()}
         fileName="marqueePartners.json"
         filePath="src/data/marqueePartners.json"
         fileContent={JSON.stringify(buildCurrentSchemaObject(), null, 2)}

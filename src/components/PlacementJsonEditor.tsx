@@ -1736,6 +1736,13 @@ export const PlacementJsonEditor: React.FC<PlacementJsonEditorProps> = ({
       <GitHubSyncModal
         isOpen={isGitHubModalOpen}
         onClose={() => setIsGitHubModalOpen(false)}
+        placements={workingPlacements}
+        partnersSchema={
+          partnersSchema || {
+            ...getInitialPartnersSchema(),
+            partners: partnersList,
+          }
+        }
         fileName="placements.json"
         filePath="src/data/placements.json"
         fileContent={JSON.stringify(formatStructuredJson(workingPlacements), null, 2)}

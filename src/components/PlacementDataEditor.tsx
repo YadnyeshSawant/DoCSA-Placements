@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PlacementRecord, Student } from '../types/placement';
 import { CompanyLogo, CompanyLogoType } from './CompanyLogo';
+import { normalizeImageUrl } from '../utils/googleDriveUrl';
 import rawPlacementsJson from '../data/placements.json';
 import {
   Download,
@@ -502,24 +503,27 @@ export const PlacementDataEditor: React.FC<PlacementDataEditorProps> = ({
                       Placed Student(s) ({placement.students.length})
                     </span>
                     <div className="space-y-1.5">
-                      {placement.students.map((student) => (
-                        <div key={student.id} className="flex items-center gap-2 text-xs">
-                          {student.photoUrl ? (
-                            <img
-                              src={student.photoUrl}
-                              alt={student.name}
-                              className="w-5 h-5 rounded-full object-cover shrink-0 border border-slate-200"
-                              referrerPolicy="no-referrer"
-                            />
-                          ) : (
-                            <div className="w-5 h-5 rounded-full bg-[#8B1E3F] text-white text-[10px] font-bold flex items-center justify-center shrink-0">
-                              {student.name.charAt(0)}
-                            </div>
-                          )}
-                          <span className="font-semibold text-slate-800 line-clamp-1">{student.name}</span>
-                          <span className="text-[10px] text-slate-500 font-normal line-clamp-1">({student.program?.split(' ')[0] || 'MCA'})</span>
-                        </div>
-                      ))}
+                      {placement.students.map((student) => {
+                        const photo = normalizeImageUrl(student.photoUrl);
+                        return (
+                          <div key={student.id} className="flex items-center gap-2 text-xs">
+                            {photo ? (
+                              <img
+                                src={photo}
+                                alt={student.name}
+                                className="w-5 h-5 rounded-full object-cover shrink-0 border border-slate-200"
+                                referrerPolicy="no-referrer"
+                              />
+                            ) : (
+                              <div className="w-5 h-5 rounded-full bg-[#8B1E3F] text-white text-[10px] font-bold flex items-center justify-center shrink-0">
+                                {student.name.charAt(0)}
+                              </div>
+                            )}
+                            <span className="font-semibold text-slate-800 line-clamp-1">{student.name}</span>
+                            <span className="text-[10px] text-slate-500 font-normal line-clamp-1">({student.program?.split(' ')[0] || 'MCA'})</span>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

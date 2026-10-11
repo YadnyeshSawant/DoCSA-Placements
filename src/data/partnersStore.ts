@@ -1,9 +1,22 @@
 import rawDefaultPartnersData from './marqueePartners.json';
 import { MarqueePartnerItem, MarqueePartnersSchema } from '../components/PartnerCompaniesJsonEditor';
 import { normalizeImageUrl } from '../utils/googleDriveUrl';
+import INITIAL_PLACEMENTS from './initialPlacements';
+import { PlacementRecord } from '../types/placement';
 
 export const PARTNERS_STORAGE_KEY = 'mitwpu_marquee_partners_custom';
 export const PLACEMENTS_STORAGE_KEY = 'mitwpu_placements_custom_data';
+
+export function getStoredPlacements(): PlacementRecord[] {
+  try {
+    const saved = localStorage.getItem(PLACEMENTS_STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    }
+  } catch (e) {}
+  return INITIAL_PLACEMENTS;
+}
 
 export function getInitialPartnersSchema(): MarqueePartnersSchema {
   try {

@@ -4,15 +4,16 @@ import { getInitialPartnersSchema } from '../data/partnersStore';
 
 const PartnerLogoItem: React.FC<{ partner: MarqueePartnerItem }> = ({ partner }) => {
   const [hasError, setHasError] = useState(false);
+  const logoSrc = (partner.logoLink || partner.logo || '').trim();
 
   return (
     <div
       title={partner.companyName}
       className="flex items-center justify-center px-4 py-2 h-11 min-w-[85px] rounded-xl bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-[#8B1E3F]/40 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-default select-none"
     >
-      {!hasError && (partner.logoLink || partner.logo) ? (
+      {!hasError && logoSrc ? (
         <img
-          src={partner.logoLink || partner.logo}
+          src={logoSrc}
           alt={partner.companyName}
           className="h-6 max-w-[100px] object-contain transition-transform duration-200 hover:scale-105"
           loading="lazy"

@@ -31,14 +31,17 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
   size = 'lg',
 }) => {
   if (type === 'custom' && customUrl) {
-    return (
-      <img
-        src={normalizeImageUrl(customUrl)}
-        alt={companyName || 'Company Logo'}
-        className={`object-contain h-12 sm:h-14 md:h-16 max-w-[260px] ${className}`}
-        referrerPolicy="no-referrer"
-      />
-    );
+    const normalizedUrl = normalizeImageUrl(customUrl);
+    if (normalizedUrl) {
+      return (
+        <img
+          src={normalizedUrl}
+          alt={companyName || 'Company Logo'}
+          className={`object-contain h-12 sm:h-14 md:h-16 max-w-[260px] ${className}`}
+          referrerPolicy="no-referrer"
+        />
+      );
+    }
   }
 
   switch (type) {
@@ -155,20 +158,25 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
     case 'celebal':
       return (
         <div className={`flex items-center justify-center select-none overflow-visible ${className}`}>
-          <img
-            src={ctLogoWebp}
-            alt={companyName || 'Celebal Technologies'}
-            className="h-12 sm:h-14 md:h-16 w-auto object-contain max-w-[260px]"
-          />
+          {ctLogoWebp ? (
+            <img
+              src={ctLogoWebp}
+              alt={companyName || 'Celebal Technologies'}
+              className="h-12 sm:h-14 md:h-16 w-auto object-contain max-w-[260px]"
+            />
+          ) : (
+            <span className="text-xl font-bold text-slate-800">Celebal Technologies</span>
+          )}
         </div>
       );
 
-    case 'virtusa':
+    case 'virtusa': {
+      const virtusaUrl = normalizeImageUrl(customUrl);
       return (
         <div className={`flex items-center justify-center select-none ${className}`}>
-          {customUrl ? (
+          {virtusaUrl ? (
             <img
-              src={customUrl}
+              src={virtusaUrl}
               alt={companyName || 'Virtusa'}
               className="h-12 sm:h-14 md:h-16 w-auto object-contain max-w-[260px]"
               referrerPolicy="no-referrer"
@@ -183,6 +191,7 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
           )}
         </div>
       );
+    }
 
     default:
       return (

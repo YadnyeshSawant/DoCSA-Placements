@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   GitHubConfig,
   getGitHubConfig,
@@ -19,14 +19,25 @@ import {
   Mail,
   Sparkles,
   Info,
+  Lock,
+  Eye,
+  EyeOff,
+  KeyRound,
 } from 'lucide-react';
+
+import { PlacementRecord } from '../types/placement';
+import { MarqueePartnersSchema } from './PartnerCompaniesJsonEditor';
+import { detectAllChanges } from '../utils/changeDetector';
+import { getInitialPartnersSchema } from '../data/partnersStore';
 
 interface GitHubSyncModalProps {
   isOpen: boolean;
   onClose: () => void;
-  fileName: string; // e.g. "placements.json" or "marqueePartners.json"
-  filePath: string; // e.g. "src/data/placements.json"
-  fileContent: string;
+  placements?: PlacementRecord[];
+  partnersSchema?: MarqueePartnersSchema;
+  fileName?: string;
+  filePath?: string;
+  fileContent?: string;
   defaultCommitMessage?: string;
   onCommitSuccess?: (result: CommitResult) => void;
 }
@@ -36,9 +47,11 @@ const EDITOR_STORAGE_KEY = 'mitwpu_editor_profile';
 export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({
   isOpen,
   onClose,
-  fileName,
-  filePath,
-  fileContent,
+  placements,
+  partnersSchema,
+  fileName = 'placements.json',
+  filePath = 'src/data/placements.json',
+  fileContent = '',
   defaultCommitMessage,
   onCommitSuccess,
 }) => {
@@ -67,11 +80,31 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({
   const [commitResult, setCommitResult] = useState<CommitResult | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  // Security PIN states
+  const [isPinModalOpen, setIsPinModalOpen] = useState(false);
+  const [securityPin, setSecurityPin] = useState('');
+  const [showPin, setShowPin] = useState(false);
+  const [pinError, setPinError] = useState<string | null>(null);
+
+  // Semantic change analysis across all placement & partner records
+  const changeAnalysis = useMemo(() => {
+    if (placements || partnersSchema) {
+      return detectAllChanges(
+        placements || [],
+        partnersSchema || getInitialPartnersSchema()
+      );
+    }
+    return null;
+  }, [placements, partnersSchema, isOpen]);
+
   useEffect(() => {
     if (isOpen) {
       setConfig(getGitHubConfig());
       setCommitResult(null);
       setErrorMessage(null);
+      setIsPinModalOpen(false);
+      setSecurityPin('');
+      setPinError(null);
 
       // Check environment variables status in background
       fetchServerEnvStatus().then((status) => {
@@ -92,8 +125,8 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({
 
   if (!isOpen) return null;
 
-  // Base action (e.g. "new - 1272250199 - Rahul Sharma" or "update - 1272250158 - Tanveer Singh")
-  const baseMessage = defaultCommitMessage || `update - placements - ${fileName}`;
+  // Base action
+  const baseMessage = defaultCommitMessage || `update - placements & hiring partners`;
 
   // Validate college email ending with @mitwpu.edu.in
   const isEmailValid =
@@ -104,7 +137,6 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({
   const isNameValid = editorName.trim().length >= 2;
   const canSubmit = isNameValid && isEmailValid && !isCommitting;
 
-  // Formatted commit message: "{update or new - prn - name} by {editor name} - {college email}"
   const formattedCommitMessage = `${baseMessage} by ${
     editorName.trim() || '[Editor Name]'
   } - ${editorEmail.trim().toLowerCase() || '[College Email]'}`;
@@ -121,7 +153,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({
     } catch (e) {}
   };
 
-  const handleCommit = async () => {
+  const handleRequestPin = () => {
     if (!isNameValid) {
       setErrorMessage('Please enter your full name.');
       return;
@@ -133,32 +165,58 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({
     }
 
     handleSaveProfile();
+    setErrorMessage(null);
+    setPinError(null);
+    setSecurityPin('');
+    setIsPinModalOpen(true);
+  };
+
+  const handleCommitWithPin = async () => {
+    if (!securityPin.trim()) {
+      setPinError('Please enter the Security PIN.');
+      return;
+    }
+
     setIsCommitting(true);
-    setCommitResult(null);
+    setPinError(null);
     setErrorMessage(null);
 
-    const fullMessage = `${baseMessage} by ${editorName.trim()} - ${editorEmail
+    const activeFiles = changeAnalysis?.filesToCommit.filter((f: any) => f.isChanged) || [];
+    const filesToSave =
+      activeFiles.length > 0
+        ? activeFiles.map((f: any) => ({ filePath: f.filePath, fileContent: f.fileContent }))
+        : changeAnalysis?.filesToCommit.map((f: any) => ({
+            filePath: f.filePath,
+            fileContent: f.fileContent,
+          })) || [{ filePath: filePath || 'src/data/placements.json', fileContent: fileContent || '' }];
+
+    const commitTitle = changeAnalysis?.defaultCommitTitle || baseMessage;
+    const commitBody = changeAnalysis?.detailedCommitBody || '';
+    const fullMessage = `${commitTitle}\n\n${commitBody}\n\nby ${editorName.trim()} - ${editorEmail
       .trim()
       .toLowerCase()}`;
 
     try {
       const res = await commitFileToGitHub({
         config,
-        filePath,
-        fileContent,
+        files: filesToSave,
         commitMessage: fullMessage,
         editorName: editorName.trim(),
         editorEmail: editorEmail.trim().toLowerCase(),
+        securityPin: securityPin.trim(),
       });
 
-      setCommitResult(res);
-      if (res.success && onCommitSuccess) {
-        onCommitSuccess(res);
-      } else if (!res.success) {
-        setErrorMessage(res.message);
+      if (res.success) {
+        setIsPinModalOpen(false);
+        setCommitResult(res);
+        if (onCommitSuccess) {
+          onCommitSuccess(res);
+        }
+      } else {
+        setPinError(res.message || 'Incorrect Security PIN.');
       }
     } catch (err: any) {
-      setErrorMessage(err.message || 'Failed to save changes.');
+      setPinError(err.message || 'Failed to authorize and save changes.');
     } finally {
       setIsCommitting(false);
     }
@@ -282,17 +340,80 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({
             </div>
           </div>
 
-          {/* Live Commit Message Preview */}
-          <div className="bg-slate-900 text-slate-100 rounded-xl p-3.5 border border-slate-800 space-y-1.5">
-            <div className="flex items-center justify-between text-[11px] text-slate-400">
+          {/* Live Commit Message & Multi-File Audit Summary */}
+          <div className="bg-slate-900 text-slate-100 rounded-xl p-3.5 border border-slate-800 space-y-2">
+            <div className="flex items-center justify-between text-[11px] text-slate-400 border-b border-slate-800 pb-2">
               <span className="font-semibold flex items-center gap-1.5 text-amber-300">
-                <FileText className="w-3.5 h-3.5" />
-                <span>Generated Audit Record</span>
+                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                <span>Detected Changes (Saving All Files Together)</span>
               </span>
-              <span className="text-[10px] text-slate-400">Official Change Log</span>
+              {changeAnalysis && (
+                <span className="text-[10px] text-emerald-400 font-mono font-bold bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">
+                  {changeAnalysis.filesToCommit.filter((f: any) => f.isChanged).length || 1} File(s)
+                </span>
+              )}
             </div>
-            <div className="font-mono text-[11px] text-emerald-400 bg-slate-950 p-2.5 rounded-lg border border-slate-800 break-all leading-relaxed select-all">
-              {formattedCommitMessage}
+
+            {/* Changed Highlights List */}
+            {changeAnalysis && (
+              <div className="space-y-1 text-[11px] text-slate-300">
+                {changeAnalysis.highlights.individualAdded.length > 0 && (
+                  <p className="text-emerald-400 font-mono text-[10px]">
+                    + Added {changeAnalysis.highlights.individualAdded.length} Individual Placement(s):{' '}
+                    <span className="text-slate-300 font-sans">
+                      {changeAnalysis.highlights.individualAdded.join(', ')}
+                    </span>
+                  </p>
+                )}
+                {changeAnalysis.highlights.individualUpdated.length > 0 && (
+                  <p className="text-amber-400 font-mono text-[10px]">
+                    • Updated {changeAnalysis.highlights.individualUpdated.length} Individual Placement(s):{' '}
+                    <span className="text-slate-300 font-sans">
+                      {changeAnalysis.highlights.individualUpdated.join(', ')}
+                    </span>
+                  </p>
+                )}
+                {changeAnalysis.highlights.groupAdded.length > 0 && (
+                  <p className="text-emerald-400 font-mono text-[10px]">
+                    + Added {changeAnalysis.highlights.groupAdded.length} Group Cohort(s):{' '}
+                    <span className="text-slate-300 font-sans">
+                      {changeAnalysis.highlights.groupAdded.join(', ')}
+                    </span>
+                  </p>
+                )}
+                {changeAnalysis.highlights.groupUpdated.length > 0 && (
+                  <p className="text-amber-400 font-mono text-[10px]">
+                    • Updated {changeAnalysis.highlights.groupUpdated.length} Group Cohort(s):{' '}
+                    <span className="text-slate-300 font-sans">
+                      {changeAnalysis.highlights.groupUpdated.join(', ')}
+                    </span>
+                  </p>
+                )}
+                {changeAnalysis.highlights.partnersAdded.length > 0 && (
+                  <p className="text-emerald-400 font-mono text-[10px]">
+                    + Added Partner(s):{' '}
+                    <span className="text-slate-300 font-sans">
+                      {changeAnalysis.highlights.partnersAdded.join(', ')}
+                    </span>
+                  </p>
+                )}
+                {changeAnalysis.highlights.statsUpdated.length > 0 && (
+                  <p className="text-sky-300 font-mono text-[10px]">
+                    • Updated Recruitment Stats:{' '}
+                    <span className="text-slate-300 font-sans">
+                      {changeAnalysis.highlights.statsUpdated.join(' · ')}
+                    </span>
+                  </p>
+                )}
+              </div>
+            )}
+
+            <div className="font-mono text-[10px] text-emerald-400 bg-slate-950 p-2.5 rounded-lg border border-slate-800 break-all leading-relaxed select-all max-h-28 overflow-y-auto whitespace-pre-wrap">
+              {changeAnalysis
+                ? `${changeAnalysis.defaultCommitTitle}\n\n${changeAnalysis.detailedCommitBody}\n\nby ${
+                    editorName.trim() || '[Name]'
+                  } - ${editorEmail.trim().toLowerCase() || '[Email]'}`
+                : formattedCommitMessage}
             </div>
           </div>
 
@@ -342,7 +463,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({
 
             <button
               type="button"
-              onClick={handleCommit}
+              onClick={handleRequestPin}
               disabled={!canSubmit}
               className="inline-flex items-center gap-2 px-5 py-2 rounded-xl text-xs font-bold text-white bg-[#8B1E3F] hover:bg-[#721833] shadow-sm hover:shadow-md transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
             >
@@ -361,6 +482,99 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({
           </div>
         </div>
       </div>
+
+      {/* SECURITY PIN VERIFICATION MODAL OVERLAY */}
+      {isPinModalOpen && (
+        <div className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs animate-in fade-in zoom-in-95 duration-150">
+          <div className="relative w-full max-w-sm bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-xl bg-rose-50 text-[#8B1E3F] border border-rose-100">
+                <Lock className="w-5 h-5 text-[#8B1E3F]" />
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-slate-900">Security PIN Verification</h3>
+                <p className="text-[11px] text-slate-500">
+                  Authorized PIN required to save changes
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-semibold text-slate-700">
+                Enter Security PIN
+              </label>
+              <div className="relative">
+                <input
+                  type={showPin ? 'text' : 'password'}
+                  autoFocus
+                  value={securityPin}
+                  onChange={(e) => {
+                    setSecurityPin(e.target.value);
+                    setPinError(null);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && securityPin.trim() && !isCommitting) {
+                      handleCommitWithPin();
+                    }
+                  }}
+                  placeholder="Enter Security PIN..."
+                  className="w-full pl-3 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-hidden focus:border-[#8B1E3F] focus:bg-white text-sm font-mono tracking-widest text-slate-900"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPin(!showPin)}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
+                  title={showPin ? 'Hide PIN' : 'Show PIN'}
+                >
+                  {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+              <p className="text-[10px] text-slate-400">
+                Stored in environment variables to protect official portal records
+              </p>
+            </div>
+
+            {pinError && (
+              <div className="p-2.5 rounded-xl border bg-rose-50 border-rose-200 text-rose-800 flex items-start gap-2 text-xs">
+                <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                <span className="font-medium">{pinError}</span>
+              </div>
+            )}
+
+            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsPinModalOpen(false);
+                  setPinError(null);
+                }}
+                disabled={isCommitting}
+                className="px-3.5 py-2 text-xs font-semibold text-slate-600 hover:text-slate-800 rounded-xl cursor-pointer"
+              >
+                Back
+              </button>
+              <button
+                type="button"
+                onClick={handleCommitWithPin}
+                disabled={!securityPin.trim() || isCommitting}
+                className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-white bg-[#8B1E3F] hover:bg-[#721833] rounded-xl shadow-xs disabled:opacity-40 cursor-pointer"
+              >
+                {isCommitting ? (
+                  <>
+                    <Loader2 className="w-3.5 h-3.5 animate-spin text-amber-300" />
+                    <span>Verifying...</span>
+                  </>
+                ) : (
+                  <>
+                    <ShieldCheck className="w-3.5 h-3.5 text-amber-300" />
+                    <span>Authorize &amp; Save</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

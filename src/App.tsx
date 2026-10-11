@@ -291,7 +291,7 @@ export default function App() {
             className="tracking-tight text-[#1E5C9E] whitespace-nowrap flex items-center gap-3 cursor-pointer hover:opacity-90 transition-opacity h-8"
           >
             <img
-              src={logoMitImg}
+              src={logoMitImg || undefined}
               alt="MIT-WPU"
               className="h-8 w-auto object-contain shrink-0 rounded-xs"
             />
@@ -605,7 +605,7 @@ export default function App() {
           <div className="flex items-center gap-3">
             <div className="bg-white p-1 rounded-lg shrink-0 shadow-xs">
               <img
-                src={logoMitImg}
+                src={logoMitImg || undefined}
                 alt="MIT-WPU Logo"
                 className="h-8 w-auto object-contain rounded-xs"
               />

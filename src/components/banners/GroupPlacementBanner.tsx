@@ -104,7 +104,7 @@ export const GroupPlacementBanner: React.FC<GroupPlacementBannerProps> = ({
                   <div key={student.id} className="flex flex-col items-center text-center group">
                     <div className="w-24 sm:w-36 md:w-40 h-36 sm:h-48 md:h-52 shrink-0 rounded-t-[36px] rounded-b-xl bg-gradient-to-b from-[#8B1E3F] via-[#781432] to-[#5C0D24] p-1.5 shadow-md flex items-end justify-center overflow-hidden relative">
                       <img
-                        src={normalizeImageUrl(student.photoUrl)}
+                        src={normalizeImageUrl(student.photoUrl) || undefined}
                         alt={student.name}
                         className="w-full h-full object-cover object-top rounded-t-[32px] shrink-0 block transition-transform duration-300 group-hover:scale-105"
                         referrerPolicy="no-referrer"
@@ -131,7 +131,7 @@ export const GroupPlacementBanner: React.FC<GroupPlacementBannerProps> = ({
                   <div key={student.id} className="w-24 sm:w-36 md:w-40 flex flex-col items-center text-center group">
                     <div className="w-24 sm:w-36 md:w-40 h-36 sm:h-48 md:h-52 shrink-0 rounded-t-[36px] rounded-b-xl bg-gradient-to-b from-[#8B1E3F] via-[#781432] to-[#5C0D24] p-1.5 shadow-md flex items-end justify-center overflow-hidden relative">
                       <img
-                        src={normalizeImageUrl(student.photoUrl)}
+                        src={normalizeImageUrl(student.photoUrl) || undefined}
                         alt={student.name}
                         className="w-full h-full object-cover object-top rounded-t-[32px] shrink-0 block transition-transform duration-300 group-hover:scale-105"
                         referrerPolicy="no-referrer"
@@ -167,7 +167,7 @@ export const GroupPlacementBanner: React.FC<GroupPlacementBannerProps> = ({
                 <div key={student.id} className="flex flex-col items-center text-center group">
                   <div className="w-28 sm:w-40 md:w-44 h-40 sm:h-56 md:h-60 shrink-0 rounded-t-[44px] rounded-b-xl bg-gradient-to-b from-[#8B1E3F] via-[#781432] to-[#5C0D24] p-1.5 shadow-md flex items-end justify-center overflow-hidden relative">
                     <img
-                      src={normalizeImageUrl(student.photoUrl)}
+                      src={normalizeImageUrl(student.photoUrl) || undefined}
                       alt={student.name}
                       className="w-full h-full object-cover object-top rounded-t-[40px] shrink-0 block transition-transform duration-300 group-hover:scale-105"
                       referrerPolicy="no-referrer"

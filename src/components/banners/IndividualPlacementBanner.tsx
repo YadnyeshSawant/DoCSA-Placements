@@ -123,9 +123,9 @@ export const IndividualPlacementBanner: React.FC<IndividualPlacementBannerProps>
 
           {/* Student Cutout/Portrait Photo - Compact sleek height */}
           <div className="relative z-10 w-full max-w-[240px] sm:max-w-[270px] md:max-w-[290px] h-[300px] sm:h-[330px] md:h-[360px] flex items-end justify-center">
-            {student?.photoUrl ? (
+            {normalizeImageUrl(student?.photoUrl) ? (
               <img
-                src={normalizeImageUrl(student.photoUrl)}
+                src={normalizeImageUrl(student.photoUrl) || undefined}
                 alt={student.name}
                 className="w-full h-full object-cover object-top drop-shadow-2xl rounded-t-3xl"
                 referrerPolicy="no-referrer"

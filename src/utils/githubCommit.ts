@@ -184,15 +184,27 @@ export async function testGitHubConnection(config: GitHubConfig): Promise<{ succ
  */
 export async function commitFileToGitHub(options: {
   config: GitHubConfig;
-  filePath: string;
-  fileContent: string;
+  filePath?: string;
+  fileContent?: string;
+  files?: Array<{ filePath: string; fileContent: string }>;
   commitMessage?: string;
   editorName?: string;
   editorEmail?: string;
+  securityPin?: string;
 }): Promise<CommitResult> {
-  const { config, filePath, fileContent, commitMessage, editorName, editorEmail } = options;
+  const { config, files, commitMessage, editorName, editorEmail, securityPin } = options;
 
-  // 1. Try serverless endpoint /api/github-commit (uses process.env.GITHUB_TOKEN)
+  const rawFiles: Array<{ filePath: string; fileContent: string }> =
+    Array.isArray(files) && files.length > 0
+      ? files
+      : options.filePath
+      ? [{ filePath: options.filePath, fileContent: options.fileContent || '' }]
+      : [];
+
+  const targetFilePath = options.filePath || rawFiles[0]?.filePath || 'src/data/placements.json';
+  const targetFileContent = options.fileContent ?? rawFiles[0]?.fileContent ?? '';
+
+  // 1. Try serverless endpoint /api/github-commit (uses process.env.GITHUB_TOKEN & process.env.SECURITY_PIN)
   try {
     const res = await fetch('/api/github-commit', {
       method: 'POST',
@@ -200,11 +212,13 @@ export async function commitFileToGitHub(options: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        filePath,
-        fileContent,
+        filePath: targetFilePath,
+        fileContent: targetFileContent,
+        files: rawFiles,
         commitMessage,
         editorName,
         editorEmail,
+        securityPin: (securityPin || '').trim(),
         owner: config.owner,
         repo: config.repo,
         branch: config.branch,
@@ -245,58 +259,65 @@ export async function commitFileToGitHub(options: {
   const message = commitMessage || 'update - student prn - name';
 
   try {
-    const getUrl = `https://api.github.com/repos/${encodeURIComponent(effectiveOwner)}/${encodeURIComponent(effectiveRepo)}/contents/${filePath}?ref=${encodeURIComponent(effectiveBranch)}`;
-    let currentSha: string | undefined = undefined;
+    let lastCommitSha: string | undefined = undefined;
+    const filesToProcess = rawFiles.length > 0 ? rawFiles : [{ filePath: targetFilePath, fileContent: targetFileContent }];
 
-    const getRes = await fetch(getUrl, {
-      headers: {
-        Authorization: `Bearer ${effectiveToken}`,
-        Accept: 'application/vnd.github.v3+json',
-      },
-    });
+    for (const fileItem of filesToProcess) {
+      const getUrl = `https://api.github.com/repos/${encodeURIComponent(effectiveOwner)}/${encodeURIComponent(effectiveRepo)}/contents/${fileItem.filePath}?ref=${encodeURIComponent(effectiveBranch)}`;
+      let currentSha: string | undefined = undefined;
 
-    if (getRes.ok) {
-      const getData = await getRes.json();
-      currentSha = getData.sha;
-    } else if (getRes.status === 401) {
-      return { success: false, message: 'Unauthorized (401). Invalid or expired GitHub Token.' };
-    }
+      const getRes = await fetch(getUrl, {
+        headers: {
+          Authorization: `Bearer ${effectiveToken}`,
+          Accept: 'application/vnd.github.v3+json',
+        },
+      });
 
-    const base64Content = utf8ToBase64(fileContent);
-    const putUrl = `https://api.github.com/repos/${encodeURIComponent(effectiveOwner)}/${encodeURIComponent(effectiveRepo)}/contents/${filePath}`;
-    const payload: Record<string, any> = {
-      message,
-      content: base64Content,
-      branch: effectiveBranch,
-    };
-    if (currentSha) {
-      payload.sha = currentSha;
-    }
+      if (getRes.ok) {
+        const getData = await getRes.json();
+        currentSha = getData.sha;
+      } else if (getRes.status === 401) {
+        return { success: false, message: 'Unauthorized (401). Invalid or expired GitHub Token.' };
+      }
 
-    const putRes = await fetch(putUrl, {
-      method: 'PUT',
-      headers: {
-        Authorization: `Bearer ${effectiveToken}`,
-        Accept: 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const putData = await putRes.json().catch(() => ({}));
-
-    if (!putRes.ok) {
-      return {
-        success: false,
-        message: putData.message || `Commit failed with status ${putRes.status}`,
+      const base64Content = utf8ToBase64(fileItem.fileContent);
+      const putUrl = `https://api.github.com/repos/${encodeURIComponent(effectiveOwner)}/${encodeURIComponent(effectiveRepo)}/contents/${fileItem.filePath}`;
+      const payload: Record<string, any> = {
+        message,
+        content: base64Content,
+        branch: effectiveBranch,
       };
+      if (currentSha) {
+        payload.sha = currentSha;
+      }
+
+      const putRes = await fetch(putUrl, {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${effectiveToken}`,
+          Accept: 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const putData = await putRes.json().catch(() => ({}));
+
+      if (!putRes.ok) {
+        return {
+          success: false,
+          message: putData.message || `Commit failed for ${fileItem.filePath} with status ${putRes.status}`,
+        };
+      }
+
+      lastCommitSha = putData.commit?.sha;
     }
 
     return {
       success: true,
-      message: `Successfully committed ${filePath} to branch "${effectiveBranch}"!`,
-      commitUrl: putData.commit?.html_url || `https://github.com/${effectiveOwner}/${effectiveRepo}/commit/${putData.commit?.sha}`,
-      commitSha: putData.commit?.sha,
+      message: `Successfully committed ${filesToProcess.length} file(s) to branch "${effectiveBranch}"!`,
+      commitUrl: `https://github.com/${effectiveOwner}/${effectiveRepo}/commits/${effectiveBranch}`,
+      commitSha: lastCommitSha,
     };
   } catch (err: any) {
     return {

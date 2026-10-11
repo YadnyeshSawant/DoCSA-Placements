@@ -72,7 +72,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
           {/* Logo Card */}
           <div className="relative bg-white p-5 sm:p-6 md:p-7 rounded-3xl border border-slate-200/90 shadow-2xl shadow-slate-900/10">
             <img
-              src={logoMitImg}
+              src={logoMitImg || undefined}
               alt="MIT World Peace University"
               className="w-60 sm:w-72 md:w-84 h-auto object-contain"
             />

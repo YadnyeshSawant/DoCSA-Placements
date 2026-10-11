@@ -4,34 +4,6 @@
   "_SECTION_NOTE_3": "====================================================================",
   "individualPlacements": [
     {
-      "_comment": "1. INDIVIDUAL: New Corporate Partner - Student Name",
-      "id": "placement-individual-1791721745439",
-      "type": "individual",
-      "company": "New Corporate Partner",
-      "companyTagline": "Technology & Innovation",
-      "companyLogoType": "custom",
-      "role": "Software Engineer",
-      "placementType": "Intern + PPO",
-      "package": "7 LPA",
-      "batchYear": "2025-27",
-      "department": "Department of Computer Science and Applications (DoCSA)",
-      "school": "School of Computer Science & Engineering",
-      "location": "Pune / Mumbai",
-      "placedDate": "October 2024",
-      "description": "Heartiest congratulations to our student on securing placement!",
-      "students": [
-        {
-          "id": "student-1791721745439-1",
-          "name": "Student Name",
-          "program": "MCA (Master of Computer Applications)",
-          "rollNo": "MITWPU25MCA101",
-          "photoUrl": "",
-          "role": "Software Engineer",
-          "quote": "Grateful to MIT-WPU DoCSA for outstanding placement support."
-        }
-      ]
-    },
-    {
       "_comment": "1. INDIVIDUAL: Quantiphi - Student Name",
       "id": "placement-individual-1791311300295",
       "type": "individual",
@@ -111,7 +83,7 @@
           "id": "celebal-student-2",
           "name": "Tanvi Ballal",
           "program": "MCA (Master of Computer Applications)",
-          "rollNo": "127220053",
+          "rollNo": "MITWPU25MCA102",
           "photoUrl": "https://media.licdn.com/dms/image/v2/D4D03AQF857rQG06IoQ/profile-displayphoto-scale_400_400/B4DaAf6bovJUAk-/0/1787241808200?e=1792627200&v=beta&t=nGXdT6phahpWMQRN435M2qVEmNlPcjKpBCXx8Wozl4s",
           "role": "Data Engineer",
           "quote": "Thrilled to embark on my corporate journey with Celebal Technologies. Special thanks to DoCSA for immense support."
@@ -258,7 +230,7 @@
           "name": "Pradnyesh Fulpagare",
           "program": "MCA (Master of Computer Applications)",
           "rollNo": "1272250462",
-          "photoUrl": "data:image/svg+xml;utf8,%0A%20%20%20%20%3Csvg%20viewBox%3D%220%200%20240%20280%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22bgGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%238B1E3F%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%235B0E23%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3C!--%20Background%20Shape%20--%3E%0A%20%20%20%20%20%20%3Crect%20width%3D%22240%22%20height%3D%22280%22%20fill%3D%22url(%23bgGrad)%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Shoulders%20%26%20Suit%20Jacket%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M20%20280%20C20%20215%2050%20185%20120%20185%20C190%20185%20220%20215%20220%20280%20Z%22%20fill%3D%22%231E1B4B%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Formal%20Shirt%20--%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22120%2C185%2085%2C225%20155%2C225%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22100%2C185%20120%2C235%20140%2C185%22%20fill%3D%22%23F8FAFC%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20MIT-WPU%20Red%20Lanyard%20ribbon%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M96%20185%20L112%20280%20M144%20185%20L128%20280%22%20stroke%3D%22%238B1E3F%22%20stroke-width%3D%224.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22240%22%20width%3D%2220%22%20height%3D%2230%22%20rx%3D%223%22%20fill%3D%22%23FFFFFF%22%20stroke%3D%22%23CBD5E1%22%20stroke-width%3D%221%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22120%22%20cy%3D%22245%22%20r%3D%222%22%20fill%3D%22%23004B87%22%2F%3E%0A%20%20%20%20%20%20%3Cline%20x1%3D%22113%22%20y1%3D%22250%22%20x2%3D%22127%22%20y2%3D%22250%22%20stroke%3D%22%238B1E3F%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%20%20%20%20%3Cline%20x1%3D%22114%22%20y1%3D%22254%22%20x2%3D%22126%22%20y2%3D%22254%22%20stroke%3D%22%2394A3B8%22%20stroke-width%3D%221%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Tie%20--%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22113%2C188%20127%2C188%20131%2C230%20120%2C245%20109%2C230%22%20fill%3D%22%238B1E3F%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Suit%20Lapels%20--%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2250%2C280%2085%2C200%20120%2C240%20100%2C280%22%20fill%3D%22%231E1B4B%22%2F%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%22190%2C280%20155%2C200%20120%2C240%20140%2C280%22%20fill%3D%22%231E1B4B%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Neck%20--%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%22104%22%20y%3D%22145%22%20width%3D%2232%22%20height%3D%2242%22%20rx%3D%224%22%20fill%3D%22%23FFDBAC%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Head%20%2F%20Face%20--%3E%0A%20%20%20%20%20%20%3Cellipse%20cx%3D%22120%22%20cy%3D%22130%22%20rx%3D%2242%22%20ry%3D%2252%22%20fill%3D%22%23FFDBAC%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Hair%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M78%20120%20C76%2080%20100%2065%20120%2065%20C145%2065%20165%2080%20162%20120%20C155%2090%20145%2080%20120%2080%20C95%2080%2085%2095%2078%20120%20Z%22%20fill%3D%22%2333271F%22%2F%3E%0A%20%20%20%20%20%20%3C!--%20Hair%20volume%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M78%20115%20C75%2095%2088%2068%20120%2068%20C152%2068%20165%2095%20162%20115%20C158%2085%20135%2074%20120%2074%20C100%2074%2085%2085%2078%20115%20Z%22%20fill%3D%22%2333271F%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Eyebrows%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M92%20112%20Q102%20108%20110%20112%22%20stroke%3D%22%2333271F%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M130%20112%20Q138%20108%20148%20112%22%20stroke%3D%22%2333271F%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Eyes%20--%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22102%22%20cy%3D%22122%22%20r%3D%224.5%22%20fill%3D%22%231E293B%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22138%22%20cy%3D%22122%22%20r%3D%224.5%22%20fill%3D%22%231E293B%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22104%22%20cy%3D%22120%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22120%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Glasses%20if%20applicable%20--%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Nose%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M120%20122%20L117%20138%20L123%20138%22%20stroke%3D%22%23A76D42%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Confident%20Smile%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M107%20152%20Q120%20162%20133%20152%22%20stroke%3D%22%238D3B3B%22%20stroke-width%3D%222.8%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%3C!--%20Trim%20Beard%20%2F%20Grooming%20--%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M102%20155%20Q120%20178%20138%20155%22%20stroke%3D%22%2333271F%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-dasharray%3D%222%203%22%20fill%3D%22none%22%20opacity%3D%220.4%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E%0A%20%20",
+          "photoUrl": "https://media.licdn.com/dms/image/v2/D4E03AQG4obXL8HKhZg/profile-displayphoto-crop_800_800/B4EZ.NkHzZJMAI-/0/1784786486448?e=1793232000&v=beta&t=Es0hwuwsT2RgdY5K5KJ8c0vfhVOYhCLJIEQ9jncRiLM",
           "role": "AI Engineer ",
           "quote": "Grateful to MIT-WPU DoCSA for outstanding placement support."
         }
@@ -340,7 +312,7 @@
       "companyLogoType": "custom",
       "role": "Software Engineer",
       "placementType": "Intern + PPO",
-      "package": "7 LPA",
+      "package": "10K Stipend",
       "batchYear": "2025-27",
       "department": "Department of Computer Science and Applications (DoCSA)",
       "school": "School of Computer Science & Engineering",
