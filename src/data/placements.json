@@ -4,6 +4,36 @@
   "_SECTION_NOTE_3": "====================================================================",
   "individualPlacements": [
     {
+      "_comment": "1. INDIVIDUAL: Cohesity - Vanshika Radadiya",
+      "id": "placement-individual-1792833896185",
+      "type": "individual",
+      "company": "Cohesity",
+      "companyTagline": "Technology & Innovation",
+      "companyLogoType": "custom",
+      "role": "Application Developer",
+      "placementType": "Intern + PPO",
+      "package": "60K Stipend ",
+      "batchYear": "2025-27",
+      "department": "Department of Computer Science and Applications (DoCSA)",
+      "school": "School of Computer Science & Engineering",
+      "location": "Pune / Mumbai",
+      "placedDate": "October 2026",
+      "description": "Heartiest congratulations to our student on securing placement!",
+      "students": [
+        {
+          "id": "student-1792833896185-1",
+          "name": "Vanshika Radadiya",
+          "program": "MCA (Master of Computer Applications)",
+          "rollNo": "1272250271",
+          "photoUrl": "https://lh3.googleusercontent.com/d/1aexBNVUdSJ9RvYSpmbt__dk5sZ7q3E8n",
+          "role": "Application Developer",
+          "quote": "Grateful to MIT-WPU DoCSA for outstanding placement support."
+        }
+      ],
+      "customLogoUrl": "https://mma.prnewswire.com/media/2577290/Cohesity_Logo.jpg?p=facebook",
+      "congratulationsSubtitle": "On your successful internship!"
+    },
+    {
       "_comment": "1. INDIVIDUAL: Quantiphi - Student Name",
       "id": "placement-individual-1791311300295",
       "type": "individual",
