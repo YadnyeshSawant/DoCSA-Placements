@@ -4,7 +4,37 @@
   "_SECTION_NOTE_3": "====================================================================",
   "individualPlacements": [
     {
-      "_comment": "1. INDIVIDUAL: Cohesity - Vanshika Radadiya",
+      "_comment": "1. INDIVIDUAL: Cohesity - Sayali Ganjale",
+      "id": "placement-individual-1792834346403",
+      "type": "individual",
+      "company": "Cohesity",
+      "companyTagline": "Technology & Innovation",
+      "companyLogoType": "custom",
+      "role": "Application Developer",
+      "placementType": "Intern + PPO",
+      "package": "60K Stipend ",
+      "batchYear": "2025-27",
+      "department": "Department of Computer Science and Applications (DoCSA)",
+      "school": "School of Computer Science & Engineering",
+      "location": "Pune / Mumbai",
+      "placedDate": "October 2026",
+      "description": "Heartiest congratulations to our student on securing placement!",
+      "students": [
+        {
+          "id": "student-1792834346403-1",
+          "name": "Sayali Ganjale",
+          "program": "MCA (Master of Computer Applications)",
+          "rollNo": "1272250404",
+          "photoUrl": "https://lh3.googleusercontent.com/d/1c5NQSCgRXObFJvAu_3NUeEQJdO734mKQ",
+          "role": "Application Developer",
+          "quote": "Grateful to MIT-WPU DoCSA for outstanding placement support."
+        }
+      ],
+      "congratulationsSubtitle": "On your successful internship!",
+      "customLogoUrl": "https://www.cohesity.com/content/dam/cohesity/live/cohesity-logo-black-green.svg"
+    },
+    {
+      "_comment": "2. INDIVIDUAL: Cohesity - Vanshika Radadiya",
       "id": "placement-individual-1792833896185",
       "type": "individual",
       "company": "Cohesity",
@@ -30,7 +60,7 @@
           "quote": "Grateful to MIT-WPU DoCSA for outstanding placement support."
         }
       ],
-      "customLogoUrl": "https://mma.prnewswire.com/media/2577290/Cohesity_Logo.jpg?p=facebook",
+      "customLogoUrl": "https://www.cohesity.com/content/dam/cohesity/live/cohesity-logo-black-green.svg",
       "congratulationsSubtitle": "On your successful internship!"
     },
     {
