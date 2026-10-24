@@ -644,6 +644,15 @@ export default function App() {
             <p className="text-[11px] text-[#E5A93C] font-medium text-center md:text-right">
               Data managed by Student Placement Representatives (SPRs) of DoCSA
             </p>
+            <p className="text-[11px] text-slate-400 text-center md:text-right">
+              If data is incorrect please mail to{' '}
+              <a
+                href="mailto:yadnyesh2018@gmail.com"
+                className="text-slate-300 hover:text-[#E5A93C] underline transition-colors"
+              >
+                yadnyesh2018@gmail.com
+              </a>
+            </p>
           </div>
         </div>
       </footer>
